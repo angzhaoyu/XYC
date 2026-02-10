@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          411.9999999999999,
+          196.88775510204079
+        ],
+        [
+          440.57142857142844,
+          231.5816326530612
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "pjl_paihang.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

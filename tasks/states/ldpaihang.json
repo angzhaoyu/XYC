@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          187.51020408163254,
+          325.4591836734694
+        ],
+        [
+          337.51020408163265,
+          358.1122448979592
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "ldpaihang.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          285.46938775510193,
+          718.3163265306123
+        ],
+        [
+          387.51020408163265,
+          746.8877551020408
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "guankan.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

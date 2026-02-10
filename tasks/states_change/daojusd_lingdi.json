@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          404.8571428571428,
+          168.31632653061223
+        ],
+        [
+          437.51020408163265,
+          198.92857142857142
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "daojusd_lingdi.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

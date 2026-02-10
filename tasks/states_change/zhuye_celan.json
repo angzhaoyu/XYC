@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          477.3061224489795,
+          801.9897959183673
+        ],
+        [
+          518.1224489795918,
+          834.6428571428572
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "zhuye_celan.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

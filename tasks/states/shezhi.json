@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          221.1836734693877,
+          171.37755102040816
+        ],
+        [
+          303.8367346938775,
+          204.03061224489795
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shezhi.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

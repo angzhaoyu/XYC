@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          352.8163265306122,
+          281.58163265306126
+        ],
+        [
+          476.2857142857142,
+          330.56122448979596
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "celan_shezhi.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

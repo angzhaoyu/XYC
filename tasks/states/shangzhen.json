@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          329.22689075630257,
+          476.47058823529414
+        ],
+        [
+          385.5294117647059,
+          527.7310924369748
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shangzhen.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

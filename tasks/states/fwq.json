@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          181.38775510204073,
+          168.31632653061223
+        ],
+        [
+          338.53061224489795,
+          199.94897959183672
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "fwq.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

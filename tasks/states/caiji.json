@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          230.36734693877543,
+          578.5204081632653
+        ],
+        [
+          293.63265306122446,
+          606.0714285714286
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "caiji.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

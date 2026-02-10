@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          197.71428571428567,
+          333.62244897959187
+        ],
+        [
+          325.2653061224489,
+          368.3163265306123
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shuaxin.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

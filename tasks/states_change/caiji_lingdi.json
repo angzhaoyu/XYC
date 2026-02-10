@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          29.346938775510125,
+          239.74489795918367
+        ],
+        [
+          49.75510204081627,
+          266.2755102040816
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "caiji_lingdi.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

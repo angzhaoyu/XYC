@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          459.4489795918368,
+          715.2551020408163
+        ],
+        [
+          509.4489795918368,
+          765.2551020408164
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "zhuye_paihang.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

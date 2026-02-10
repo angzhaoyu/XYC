@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          199.75510204081627,
+          220.35714285714283
+        ],
+        [
+          324.2448979591836,
+          248.92857142857142
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "daojusd.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

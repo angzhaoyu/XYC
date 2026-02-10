@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          463.0204081632653,
+          345.86734693877554
+        ],
+        [
+          509.9591836734694,
+          380.56122448979596
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "lingdi_rclibao.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

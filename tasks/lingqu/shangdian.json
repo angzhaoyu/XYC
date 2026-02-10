@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          329.3469387755101,
+          343.82653061224494
+        ],
+        [
+          405.8775510204081,
+          373.4183673469388
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shangdian.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

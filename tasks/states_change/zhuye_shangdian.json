@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          15.061224489795904,
+          175.45918367346937
+        ],
+        [
+          56.89795918367338,
+          224.43877551020407
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "zhuye_shangdian.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

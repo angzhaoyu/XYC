@@ -1,0 +1,17 @@
+Figure1, recognize, click, sleep=2.5
+Figure2, recognize, click, sleep=1.9
+Figure3, recognize, click, sleep=4.1
+Figure4, recognize, click, sleep=1.6
+Figure5, recognize, click, sleep=3.5
+Figure6, recognize, click, sleep=1.3
+Figure7, recognize, click, sleep=1.0
+Figure8, recognize, click, sleep=0.5
+Figure9, recognize, click, sleep=1.8
+Figure10, recognize, click, sleep=1.9
+Figure11, recognize, click, sleep=2.1
+Figure12, recognize, click, sleep=0.8
+Figure13, recognize, click, sleep=0.9
+Figure14, recognize, click, sleep=1.3
+Figure15, recognize, click, sleep=3.6
+Figure16, recognize, click, sleep=0.9
+Figure17, recognize, click
