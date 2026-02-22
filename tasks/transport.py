@@ -403,7 +403,7 @@ class TransportTask:
         """
         均分算法：尽量平均分配
         
-        例如：6兽3资源 -> [2, 2, 2]
+        例如： 6兽3资源 -> [2, 2, 2]
               5兽3资源 -> [2, 2, 1]
               4兽3资源 -> [2, 1, 1]
         """
@@ -532,17 +532,14 @@ class TransportTask:
             tuple: (stock, selected, capacity) 或 None
         """
         self.refresh_screen()
-        
         # 读取库存（002.png）
         ocr_stock = self.ocr_region("002.png")
         stock = self.parse_number(ocr_stock, default=0)
-        
         # 读取已选/容量（003.png）
         ocr_sel = self.ocr_region("003.png")
-        selected, capacity = self.parse_fraction(ocr_sel)
-        
-        print(f"   📊 库存:{stock}, 已选:{selected}/{capacity}")
-        
+        selected, capacity = self.parse_fraction(ocr_sel)        
+        print(f" 📊 库存:{stock}, 已选:{selected}/{capacity}")
+
         return stock, selected, capacity
 
     def select_beasts(self, target_count):

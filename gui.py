@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox
 import pygetwindow as gw
 import os
 import win32gui
-from PIL import ImageGrab # 记得安装: pip install pillow
+from PIL import ImageGrab 
 from controller import GameController
 
 class FishingVillageGUI:

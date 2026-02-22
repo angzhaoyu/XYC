@@ -143,11 +143,11 @@ class MyVision:
         return img_data[y1:y2, x1:x2]
 
     # --- 文字识别 ---
-    def detect_text(self, img_input, a_percentage=None, n=4):
+    def detect_text(self, img_input, a_percentage=None, n=4, math = None):
         import easyocr
         if not self.ocr_reader: 
             #print("正在初始化 EasyOCR（仅首次调用时加载）")
-            self.ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)  # 可改为 True 使用 GPU
+            self.ocr_reader = easyocr.Reader(['en'], gpu=True)  # 可改为 True 使用 GPU
         img = self._load(img_input)
         roi, (ox, oy) = self._get_roi(img, a_percentage)
 
@@ -161,8 +161,33 @@ class MyVision:
         kernel = np.ones((2,2), np.uint8)
         processed_img = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
         
+        '''
+        cv2.imwrite("debug_1_resized_color.jpg", img2)          # 放大后的彩色原图
+        cv2.imwrite("debug_2_gray.jpg", gray)
+        '''
+        #image_path = "./debug_3_processed.jpg"
+        #cv2.imwrite(image_path, processed_img)     
+        
+
+        if math:
+            #img11 = cv2.imread(image_path)      
+            text_output = self.ocr_reader.readtext(
+                processed_img,
+                #detail = 0,                # 只返回文字列表
+                allowlist = '0123456789',  # 只认 0~9，极大提高纯数字准确率
+                # 可选加这些参数进一步优化
+                paragraph = False,         # 不合并成段落
+                min_size = 5,             # 忽略太小的检测框
+                contrast_ths = 0.1,
+                adjust_contrast = 0.5,
+                text_threshold = 0.3,
+                low_text = 0.3,
+            )
+        else:
+            text_output = self.ocr_reader.readtext(processed_img)
+            
         final = []
-        for (bbox, text, prob) in self.ocr_reader.readtext(processed_img):
+        for (bbox, text, prob) in text_output:
             xs, ys = [p[0] for p in bbox], [p[1] for p in bbox]
             final.append({"text": text, "box": [[min(xs)+ox, min(ys)+oy], [max(xs)+ox, max(ys)+oy]]})
         return final
