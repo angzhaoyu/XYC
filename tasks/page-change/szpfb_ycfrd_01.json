@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "水族评分榜",
+      "text": "",
+      "points": [
+        [
+          292.48575498575497,
+          885.6196581196581
+        ],
+        [
+          357.7849002849003,
+          937.3148148148148
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "szpfb_ycfrd_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

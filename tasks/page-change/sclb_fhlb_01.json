@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "饲料礼包",
+      "text": "",
+      "points": [
+        [
+          376.8304843304843,
+          886.980056980057
+        ],
+        [
+          428.525641025641,
+          938.6752136752137
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "sclb_fhlb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

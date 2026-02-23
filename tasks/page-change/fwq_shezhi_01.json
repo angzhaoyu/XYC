@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "选择服务器",
+      "text": "",
+      "points": [
+        [
+          401.89015691868764,
+          166.20542082738947
+        ],
+        [
+          446.8473609129815,
+          204.35092724679032
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "fwq_shezhi_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

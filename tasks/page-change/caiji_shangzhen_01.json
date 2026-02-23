@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "采集",
+      "text": "",
+      "points": [
+        [
+          213.88730385164055,
+          572.1825962910129
+        ],
+        [
+          299.7146932952925,
+          607.6034236804566
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "caiji_shangzhen_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "活动弹窗2",
+      "text": "",
+      "points": [
+        [
+          397.80313837375184,
+          273.830242510699
+        ],
+        [
+          438.6733238231099,
+          316.0627674750357
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "tanchuang2_zhuye_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

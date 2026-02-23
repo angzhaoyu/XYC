@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "设置",
+      "text": "",
+      "points": [
+        [
+          290.1783166904423,
+          636.2125534950072
+        ],
+        [
+          396.44079885877323,
+          666.1840228245364
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shezhi_fwq_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

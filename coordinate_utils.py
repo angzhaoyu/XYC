@@ -1,6 +1,3 @@
-
-
-
 import pygetwindow as gw
 import cv2
 import numpy as np

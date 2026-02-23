@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "开始游戏",
+      "text": "",
+      "points": [
+        [
+          204.35092724679032,
+          735.6633380884451
+        ],
+        [
+          318.7874465049929,
+          775.1711840228246
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "begin_tanchuang_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

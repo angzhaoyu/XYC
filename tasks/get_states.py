@@ -21,7 +21,6 @@ class StateManager:
 
         # 初始化识别
         self.v = vision.MyVision(yolo_model_path=yolo_model)
-
         # 仅用 page-change 构建导航图（pop 不参与导航）
         self.state_graph = self._build_graph()
 
@@ -73,10 +72,10 @@ class StateManager:
                     elif current_section == "page-states":
                         self.page_order.append(key)
 
-        print(f"📋 弹窗状态: {self.pop_order}")
-        print(f"📋 页面状态: {self.page_order}")
-        print(f"📋 弹窗关闭: {list(config['pop-change'].keys())}")
-        print(f"📋 页面跳转: {list(config['page-change'].keys())}")
+        #print(f"📋 弹窗状态: {self.pop_order}")
+        #print(f"📋 页面状态: {self.page_order}")
+        #print(f"📋 弹窗关闭: {list(config['pop-change'].keys())}")
+        #print(f"📋 页面跳转: {list(config['page-change'].keys())}")
         return config
 
     # ==================== 导航图 ====================
@@ -92,7 +91,7 @@ class StateManager:
                     graph[from_state] = {}
                 if to_state not in graph[from_state]:
                     graph[from_state][to_state] = key
-        print(f"📊 导航图: {graph}")
+        #print(f"📊 导航图: {graph}")
         return graph
 
     # ==================== 弹窗处理 ====================
@@ -312,7 +311,7 @@ class StateManager:
         if not json_path.is_absolute():
             json_path = self.base_dir / json_path
 
-        for i in range(3):
+        for i in range(5):
             current = self.get_states()
             if current == target_state:
                 print(f"🎉 已到达 [{target_state}]")
@@ -330,6 +329,6 @@ class StateManager:
 
 
 # ==================== 运行 ====================
-# mgr = StateManager("task/states.txt", app_name="幸福小渔村")
+#mgr = StateManager("tasks/states.txt", app_name="幸福小渔村")
 # mgr.get_states()
-# mgr.navigate_to("shezhi")
+#mgr.navigate_to("caidan")

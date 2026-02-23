@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "孵化礼包",
+      "text": "",
+      "points": [
+        [
+          299.2877492877493,
+          884.2592592592592
+        ],
+        [
+          345.5413105413105,
+          934.5940170940171
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "fhlb_sxklb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

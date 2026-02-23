@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          205.71326676176892,
+          201.62624821683312
+        ],
+        [
+          265.6562054208274,
+          249.3081312410842
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "tanchuang.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

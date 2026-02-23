@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "饲料礼包",
+      "text": "",
+      "points": [
+        [
+          297.9273504273504,
+          886.9800569800569
+        ],
+        [
+          348.26210826210826,
+          935.9544159544159
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "sclb_sxklb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

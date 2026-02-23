@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "领地",
+      "text": "",
+      "points": [
+        [
+          462.53561253561253,
+          344.18091168091166
+        ],
+        [
+          506.06837606837604,
+          383.63247863247864
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "lingdi_sxklb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

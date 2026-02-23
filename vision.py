@@ -143,11 +143,14 @@ class MyVision:
         return img_data[y1:y2, x1:x2]
 
     # --- 文字识别 ---
-    def detect_text(self, img_input, a_percentage=None, n=4, math = None):
+    def detect_text(self, img_input, a_percentage=None, n=4, math = None, chinese = None):
         import easyocr
         if not self.ocr_reader: 
             #print("正在初始化 EasyOCR（仅首次调用时加载）")
-            self.ocr_reader = easyocr.Reader(['en'], gpu=True)  # 可改为 True 使用 GPU
+            if chinese:
+                self.ocr_reader = easyocr.Reader(['ch_sim'], gpu=True)  # 可改为 True 使用 GPU
+            else:
+                self.ocr_reader = easyocr.Reader(['en'], gpu=True)  # 可改为 True 使用 GPU
         img = self._load(img_input)
         roi, (ox, oy) = self._get_roi(img, a_percentage)
 
@@ -230,7 +233,10 @@ print(a_percentage)
 
 import operate
 img = operate.Operator(app_name="幸福小渔村").capture()
+
 vision = MyVision(yolo_model_path="models/best.pt")
-a_percentage = vision.detect_yolo(img)
+limit = vision.limit_scope("tasks/change-regions/shezhi.png", scale=1)
+a_percentage = vision.detect_text(img, limit, n=4)
 print("=="*30,a_percentage)
-'''
+
+'''''''''

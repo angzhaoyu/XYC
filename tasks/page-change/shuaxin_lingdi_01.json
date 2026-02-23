@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "刷新",
+      "text": "",
+      "points": [
+        [
+          395.87606837606836,
+          329.2165242165242
+        ],
+        [
+          442.1296296296296,
+          375.47008547008545
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shuaxin_lingdi_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}
