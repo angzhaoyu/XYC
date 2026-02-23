@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "水族评分榜",
+      "text": "",
+      "points": [
+        [
+          368.66809116809117,
+          882.8988603988604
+        ],
+        [
+          429.8860398860399,
+          940.0356125356125
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "szpfb_hszlb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

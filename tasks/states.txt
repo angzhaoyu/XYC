@@ -1,74 +1,79 @@
 #pop-states
-huode = "tasks/pop-states/huode" #获得资源
+tanchuang = "tasks/pop-states/tanchuang" #新年弹窗
+tanchuang2 = "tasks/pop-states/tanchuang2" #活动弹窗2
+huode = "tasks/pop-states/huode" #获得
 
 #pop-change
-huode_zhuye_01 =  "tasks/pop-change/002" #退出获得  
+tanchuang_tanchuang2_01 = "tasks/pop-change/tanchuang_tanchuang2_01"
+tanchuang2_zhuye_01 = "tasks/pop-change/tanchuang2_zhuye_01"
+huode_shangdian_01 = "tasks/pop-change/huode_shangdian_01"
 
 #page-states
-daojusd = "tasks/page-states/daojusd"
-ldpaihang = "tasks/page-states/ldpaihang"
-rclibao = "tasks/page-states/rclibao"
-ljl = "tasks/page-states/ljl"
-shuaxin = "tasks/page-states/shuaxin"
-shezhi = "tasks/page-states/shezhi"
-qiandao = "tasks/page-states/qiandao"
-fwq = "tasks/page-states/fwq"
-zhp = "tasks/page-states/zhp" # 杂货铺
-celan = "tasks/page-states/celan"
-pjl = "tasks/page-states/pjl" #排行的奖励
-paihang = "tasks/page-states/paihang" #排行
-shangdian = "tasks/page-states/shangdian" #商店
 zhuye = "tasks/page-states/zhuye" #主页
-guankan =  "tasks/page-states/guankan" #观看鸟
-caiji = "tasks/page-states/caiji"	#采集
-shangzhen = "tasks/page-states/shangzhen"	#上阵，选择兽
-lingdi = "tasks/page-states/lingdi"  #领地
+begin = "tasks/page-states/begin" #开始游戏
+caidan = "tasks/page-states/caidan" #菜单
+shezhi = "tasks/page-states/shezhi" #设置
+fwq = "tasks/page-states/fwq" #选择服务器
+zhp = "tasks/page-states/zhp" #杂货铺
+qiandao = "tasks/page-states/qiandao" #每日签到
+shangdian = "tasks/page-states/shangdian" #商店
+lingdi = "tasks/page-states/lingdi" #领地
+shuaxin = "tasks/page-states/shuaxin" #刷新
+ycfrd = "tasks/page-states/ycfrd" #渔村繁荣度
+ldpaihang = "tasks/page-states/ldpaihang" #领地排行榜
+djsd = "tasks/page-states/djsd" #道具商店
+sxklb = "tasks/page-states/sxklb" #刷新卡礼包
+fhlb = "tasks/page-states/fhlb" #孵化礼包
+sclb = "tasks/page-states/sclb" #饲料礼包
+hszlb = "tasks/page-states/hszlb" #海兽战力榜
+szpfb = "tasks/page-states/szpfb" #水族评分榜
+caiji = "tasks/page-states/caiji" #采集
+shangzhen = "tasks/page-states/shangzhen" #上阵
+guankan = "tasks/page-states/guankan" #观看
 
 #page-change
-caiji_shangzhen_01 = "tasks/page-change/caiji_shangzhen" #采集按键  ， 需要却状态为caiji
-caiji_lingdi_01 = "tasks/page-change/caiji_lingdi" #取消
-celan_shezhi_01 = "tasks/page-change/celan_shezhi" 
-celan_qiandao_01 = "tasks/page-change/celan_qiandao" 
-celan_zhp_01 = "tasks/page-change/celan_zhp" 
-celan_zhuye_01 = "tasks/page-change/celan_zhuye" 
-shezhi_celan_01 = "tasks/page-change/shezhi_celan" 
-shezhi_fwq_01 = "tasks/page-change/shezhi_fwq" 
-shangzhen_lingdi_01 = "tasks/page-change/shangzhen_lingdi_01" 
+zhuye_lingdi_01 = "tasks/page-change/zhuye_lingdi_01"
+zhuye_caidan_01 = "tasks/page-change/zhuye_caidan_01"
+zhuye_shangdian_01 = "tasks/page-change/zhuye_shangdian_01"
+zhuye_ycfrd_01 = "tasks/page-change/zhuye_ycfrd_01"
+begin_tanchuang_01 = "tasks/page-change/begin_tanchuang_01"
+caidan_shezhi_01 = "tasks/page-change/caidan_shezhi_01"
+caidan_zhuye_01 = "tasks/page-change/caidan_zhuye_01"
+caidan_zhp_01 = "tasks/page-change/caidan_zhp_01"
+caidan_qiandao_01 = "tasks/page-change/caidan_qiandao_01"
+shezhi_fwq_01 = "tasks/page-change/shezhi_fwq_01"
+shezhi_caidan_01 = "tasks/page-change/shezhi_caidan_01"
+fwq_shezhi_01 = "tasks/page-change/fwq_shezhi_01"
+zhp_caidan_01 = "tasks/page-change/zhp_caidan_01"
+qiandao_caidan_01 = "tasks/page-change/qiandao_caidan_01"
+shangdian_zhuye_01 = "tasks/page-change/shangdian_zhuye_01"
+lingdi_shuaxin_01 = "tasks/page-change/lingdi_shuaxin_01"
+lingdi_zhuye_01 = "tasks/page-change/lingdi_zhuye_01"
+lingdi_ldpaihang_01 = "tasks/page-change/lingdi_ldpaihang_01"
+lingdi_djsd_01 = "tasks/page-change/lingdi_djsd_01"
+lingdi_sxklb_01 = "tasks/page-change/lingdi_sxklb_01"
+shuaxin_lingdi_01 = "tasks/page-change/shuaxin_lingdi_01"
+ycfrd_zhuye_01 = "tasks/page-change/ycfrd_zhuye_01"
+ycfrd_hszlb_01 = "tasks/page-change/ycfrd_hszlb_01"
+ycfrd_szpfb_01 = "tasks/page-change/ycfrd_szpfb_01"
+ldpaihang_lingdi_01 = "tasks/page-change/ldpaihang_lingdi_01"
+djsd_lingdi_01 = "tasks/page-change/djsd_lingdi_01"
+sxklb_lingdi_01 = "tasks/page-change/sxklb_lingdi_01"
+sxklb_fhlb_01 = "tasks/page-change/sxklb_fhlb_01"
+fhlb_sxklb_01 = "tasks/page-change/fhlb_sxklb_01"
+fhlb_sclb_01 = "tasks/page-change/fhlb_sclb_01"
+fhlb_lingdi_01 = "tasks/page-change/fhlb_lingdi_01"
+sclb_sxklb_01 = "tasks/page-change/sclb_sxklb_01"
+sclb_fhlb_01 = "tasks/page-change/sclb_fhlb_01"
+sclb_lingdi_01 = "tasks/page-change/sclb_lingdi_01"
+hszlb_ycfrd_01 = "tasks/page-change/hszlb_ycfrd_01"
+hszlb_szpfb_01 = "tasks/page-change/hszlb_szpfb_01"
+hszlb_zhuye_01 = "tasks/page-change/hszlb_zhuye_01"
+szpfb_ycfrd_01 = "tasks/page-change/szpfb_ycfrd_01"
+szpfb_hszlb_01 = "tasks/page-change/szpfb_hszlb_01"
+szpfb_zhuye_01 = "tasks/page-change/szpfb_zhuye_01"
+caiji_shangzhen_01 = "tasks/page-change/caiji_shangzhen_01"
+shangzhen_lingdi_01 = "tasks/page-change/shangzhen_lingdi_01"
 shangzhen_lingdi_02 = "tasks/page-change/shangzhen_lingdi_02"
-shangdian_zhuye_01 = "tasks/page-change/shangdian_zhuye"
-fwq_shezhi_01 = "tasks/page-change/fwq_shezhi"
-qiandao_celan_01 = "tasks/page-change/qiandao_celan"
-zhp_celan_01 = "tasks/page-change/zhp_celan"
-zhuye_shangdian_01 = "tasks/page-change/zhuye_shangdian"  #进入商店
-zhuye_paihang_01 = "tasks/page-change/zhuye_paihang" #进入排行
-zhuye_celan_01 = "tasks/page-change/zhuye_celan"
-zhuye_lingdi_01 = "tasks/page-change/zhuye_lingdi"
-lingdi_zhuye_01 =  "tasks/page-change/lingdi_zhuye" 
-paihang_pjl_01 = "tasks/page-change/paihang_pjl" 
-pjl_paihang_01 = "tasks/page-change/pjl_paihang"
-paihang_zhuye_01 = "tasks/page-change/paihang_zhuye"
-guankan_lingdi_01  = "tasks/page-change/guankan_lingdi" #取消观看
-guankan_guanggao_01 =  "tasks/states/guankan_guanggao"  #进入广告
-daojusd_lingdi_01 = "tasks/page-change/daojusd_lingdi"
-ldpaihang_lingdi_01 = "tasks/page-change/ldpaihang_lingdi"
-ldpaihang_ljl_01 = "tasks/page-change/ldpaihang_ljl"
-lingdi_daojusd_01 = "tasks/page-change/lingdi_daojusd"
-lingdi_ldpaihang_01 = "tasks/page-change/lingdi_ldpaihang"
-lingdi_rclibao_01 = "tasks/page-change/lingdi_rclibao"
-lingdi_shuaxin_01 = "tasks/page-change/lingdi_shuaxin"
-ljl_ldpaihang_01 = "tasks/page-change/ljl_ldpaihang"
-rclibao_lingdi_01 = "tasks/page-change/rclibao_lingdi"
-shuaxin_lingdi_01 = "tasks/page-change/shuaxin_lingdi"
-
-
-
-
-
-
-
-
-
-
-
-# ===== 自动添加（需改key）=====
+guankan_lingdi_01 = "tasks/page-change/guankan_lingdi_01"
 

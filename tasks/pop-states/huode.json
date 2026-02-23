@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          210.86182336182335,
+          370.02849002849
+        ],
+        [
+          311.53133903133903,
+          410.84045584045583
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "huode.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

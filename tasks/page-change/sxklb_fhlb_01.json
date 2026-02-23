@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "刷新卡礼包",
+      "text": "",
+      "points": [
+        [
+          371.38888888888886,
+          886.9800569800569
+        ],
+        [
+          428.525641025641,
+          933.2336182336182
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "sxklb_fhlb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

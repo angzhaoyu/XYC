@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "观看",
+      "text": "",
+      "points": [
+        [
+          72.20399429386592,
+          351.48359486447936
+        ],
+        [
+          119.88587731811701,
+          380.09272467903
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "guankan_lingdi_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          371.91868758915837,
+          889.6077032810272
+        ],
+        [
+          425.0499286733239,
+          938.6519258202569
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "hszlb.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

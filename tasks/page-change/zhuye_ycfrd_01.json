@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "主页",
+      "text": "",
+      "points": [
+        [
+          461.40194681861345,
+          716.4767331433998
+        ],
+        [
+          509.01590693257356,
+          766.358024691358
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "zhuye_ycfrd_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "领地",
+      "text": "",
+      "points": [
+        [
+          130.5982905982906,
+          880.1780626780627
+        ],
+        [
+          170.04985754985753,
+          929.1524216524216
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "lingdi_shuaxin_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

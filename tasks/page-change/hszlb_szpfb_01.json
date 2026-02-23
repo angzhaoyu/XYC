@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "海兽战力榜",
+      "text": "",
+      "points": [
+        [
+          447.57122507122506,
+          889.7008547008547
+        ],
+        [
+          506.06837606837604,
+          937.3148148148148
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "hszlb_szpfb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

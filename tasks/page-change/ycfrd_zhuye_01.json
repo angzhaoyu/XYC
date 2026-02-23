@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "渔村繁荣度",
+      "text": "",
+      "points": [
+        [
+          21.766381766381766,
+          889.7008547008547
+        ],
+        [
+          62.578347578347575,
+          931.8732193732194
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "ycfrd_zhuye_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

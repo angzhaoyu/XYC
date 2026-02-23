@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          375.47008547008545,
+          884.2592592592592
+        ],
+        [
+          425.8048433048433,
+          935.9544159544159
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "fhlb.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "孵化礼包",
+      "text": "",
+      "points": [
+        [
+          19.045584045584047,
+          888.3404558404558
+        ],
+        [
+          62.578347578347575,
+          935.9544159544159
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "fhlb_lingdi_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

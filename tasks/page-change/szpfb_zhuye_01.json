@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "水族评分榜",
+      "text": "",
+      "points": [
+        [
+          24.48717948717948,
+          889.7008547008543
+        ],
+        [
+          66.9316239316239,
+          930.5128205128201
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "szpfb_zhuye_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

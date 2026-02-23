@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "海兽战力榜",
+      "text": "",
+      "points": [
+        [
+          25.84757834757835,
+          889.7008547008547
+        ],
+        [
+          63.938746438746435,
+          930.5128205128206
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "hszlb_zhuye_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

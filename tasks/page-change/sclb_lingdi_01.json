@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "饲料礼包",
+      "text": "",
+      "points": [
+        [
+          25.84757834757834,
+          893.7820512820514
+        ],
+        [
+          70.74074074074073,
+          934.5940170940172
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "sclb_lingdi_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}
