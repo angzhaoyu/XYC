@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "杂货铺",
+      "text": "",
+      "points": [
+        [
+          398.5968660968661,
+          160.52706552706553
+        ],
+        [
+          444.85042735042737,
+          202.6994301994302
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "zhp_caidan_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

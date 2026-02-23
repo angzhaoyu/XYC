@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          295.2065527065527,
+          886.980056980057
+        ],
+        [
+          353.7037037037037,
+          937.3148148148148
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "sxklb.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "获得",
+      "text": "",
+      "points": [
+        [
+          87.06552706552706,
+          258.4757834757835
+        ],
+        [
+          136.03988603988603,
+          289.7649572649573
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "huode_shangdian_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

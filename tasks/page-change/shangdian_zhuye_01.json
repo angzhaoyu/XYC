@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "商店",
+      "text": "",
+      "points": [
+        [
+          28.568376068376068,
+          888.3404558404558
+        ],
+        [
+          63.938746438746435,
+          929.1524216524216
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shangdian_zhuye_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

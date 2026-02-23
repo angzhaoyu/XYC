@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "领地排行榜",
+      "text": "",
+      "points": [
+        [
+          20.405982905982906,
+          886.9800569800569
+        ],
+        [
+          66.65954415954415,
+          933.2336182336182
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "ldpaihang_lingdi_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

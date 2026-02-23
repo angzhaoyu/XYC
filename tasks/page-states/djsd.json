@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          195.89743589743588,
+          212.22222222222223
+        ],
+        [
+          325.13532763532766,
+          251.67378917378917
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "djsd.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

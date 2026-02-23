@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "渔村繁荣度",
+      "text": "",
+      "points": [
+        [
+          450.2920227920228,
+          886.9800569800569
+        ],
+        [
+          503.34757834757835,
+          938.6752136752136
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "ycfrd_szpfb_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

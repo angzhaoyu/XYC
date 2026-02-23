@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          295.20655270655266,
+          889.7008547008547
+        ],
+        [
+          348.26210826210826,
+          934.594017094017
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "ycfrd.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "领地",
+      "text": "",
+      "points": [
+        [
+          19.045584045584047,
+          809.4373219373219
+        ],
+        [
+          55.77635327635328,
+          847.5284900284901
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "lingdi_djsd_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

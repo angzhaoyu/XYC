@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "主页",
+      "text": "",
+      "points": [
+        [
+          336.49786019971475,
+          881.4336661911556
+        ],
+        [
+          393.71611982881603,
+          934.564907275321
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "zhuye_lingdi_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

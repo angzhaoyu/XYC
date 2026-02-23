@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "菜单",
+      "text": "",
+      "points": [
+        [
+          350.982905982906,
+          623.0626780626781
+        ],
+        [
+          469.3376068376068,
+          677.4786324786324
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "caidan_qiandao_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

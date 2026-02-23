@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          453.0128205128205,
+          886.9800569800569
+        ],
+        [
+          506.06837606837604,
+          941.3960113960114
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "sclb.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

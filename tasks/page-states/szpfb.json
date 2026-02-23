@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "state",
+      "text": "",
+      "points": [
+        [
+          444.85042735042737,
+          888.0734845620391
+        ],
+        [
+          503.32203587926324,
+          941.3960113960114
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "szpfb.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

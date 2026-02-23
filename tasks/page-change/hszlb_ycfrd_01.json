@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "海兽战力榜",
+      "text": "",
+      "points": [
+        [
+          292.485754985755,
+          885.6196581196581
+        ],
+        [
+          356.42450142450144,
+          934.5940170940171
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "hszlb_ycfrd_01.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}
