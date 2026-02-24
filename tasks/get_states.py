@@ -329,6 +329,6 @@ class StateManager:
 
 
 # ==================== 运行 ====================
-#mgr = StateManager("tasks/states.txt", app_name="幸福小渔村")
-# mgr.get_states()
-#mgr.navigate_to("caidan")
+"""mgr = StateManager("tasks/states.txt", app_name="幸福小渔村")
+mgr.get_states()
+mgr.navigate_to("caidan")"""

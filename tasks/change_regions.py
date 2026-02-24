@@ -8,12 +8,16 @@ import vision
 from tasks.get_states import StateManager
 
 
-img = operate.Operator(app_name="幸福小渔村").capture()
+
+windows = operate.Operator.get_all_windows()
+
+print(windows)
 V = vision.MyVision(yolo_model_path="models/best.pt")
 
+img = operate.Operator(app_name="幸福小渔村").capture()
 def detect_num(img,limit_img):
     limit = V.limit_scope(limit_img, scale=1)
-    date = V.detect_text(img, limit, n=4, math=True)
+    date = V.detect_text(img, limit, n=16, math=True)
     #print("=="*30,date)
     if date:
         return int(date[0]['text'])
@@ -21,26 +25,18 @@ climit_img1 = "tasks/change-regions/shezhi_01.png"
 climit_img2 = "tasks/change-regions/shezhi_02.png"
 mgr = StateManager("tasks/states.txt", app_name="幸福小渔村")
 mgr.navigate_to("shezhi")
-current_r = [detect_num(img,climit_img1),detect_num(img,climit_img2)]
+current_region = [detect_num(img,climit_img1),detect_num(img,climit_img2)]
+def detect_id(img,filter_path):
+    for i in Path(filter_path).glob("*.png"):
+        a = V.find_image(img, i, a_percentage=None)
+        if a:
+            return i.stem
 
-mgr.navigate_to("fwq")
-flimit_img1 = "tasks/change-regions/fwq_01.png"
-flimit_img2 = "tasks/change-regions/fwq_02.png"
-current_f1 = [detect_num(img,flimit_img1),detect_num(img,flimit_img2)]
-
-flimit_img3 = "tasks/change-regions/fwq_03.png"
-flimit_img4 = "tasks/change-regions/fwq_04.png"
-current_f2 = [detect_num(img,flimit_img3),detect_num(img,flimit_img4)]
-
-flimit_img5 = "tasks/change-regions/fwq_05.png"
-flimit_img6 = "tasks/change-regions/fwq_06.png"
-current_f3 = [detect_num(img,flimit_img5),detect_num(img,flimit_img6)]
-
+filter_path = "tasks/change-regions/ID/"
+current_id =  detect_id(img,filter_path)
 
 
 print("=="*30,"\n",
-      current_r , "\n",
-      current_f1, "\n",
-      current_f2, "\n",
-      current_f3, "\n",
+      current_region , "\n",
+      id
       )

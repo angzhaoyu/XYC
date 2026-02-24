@@ -17,12 +17,13 @@ def get_target_window(app_name_or_id):
         windows = gw.getWindowsWithTitle(app_name_or_id)
         return windows[0] if windows else None
     elif isinstance(app_name_or_id, int):
-        # 通过句柄获取窗口
-        try:
-            return gw.Window(app_name_or_id)
-        except Exception:
-            return None
-    return app_name_or_id
+        # ✅ 修复：pygetwindow 不支持 gw.Window(hwnd)
+        # 必须遍历所有窗口，通过句柄匹配
+        for w in gw.getAllWindows():
+            if w._hWnd == app_name_or_id:
+                return w
+        return None
+
 
 def random_duration(min_time, max_time, use_gauss=True):
     """生成随机持续时间"""
@@ -90,7 +91,7 @@ class Operator:
 
         coord_type = 'a_percentage' if is_percentage(box) else 'a_pixel'
 
-        converter = CoordinateConverter(box, coord_type=coord_type, obj=self.app_name)
+        converter = CoordinateConverter(box, coord_type=coord_type, obj=self._window.title)
         return converter.s_pixel
 
     def capture(self, save_path=None, region=None):
@@ -215,6 +216,7 @@ class Operator:
 
 # 方式1：通过ID绑定并截图
 """
-op = Operator(app_name="幸福小渔村") 
-img = op.click_json("tasks/states_change/002.json")
+op = Operator(app_name= 1249806) 
+#op.capture(save_path="screenshots/capture_by_id.png")
+op.click_json("tasks/page-change/guankan_lingdi_01.png")
 """

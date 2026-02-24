@@ -146,11 +146,12 @@ class MyVision:
     def detect_text(self, img_input, a_percentage=None, n=4, math = None, chinese = None):
         import easyocr
         if not self.ocr_reader: 
+            '''
             #print("正在初始化 EasyOCR（仅首次调用时加载）")
             if chinese:
                 self.ocr_reader = easyocr.Reader(['ch_sim'], gpu=True)  # 可改为 True 使用 GPU
-            else:
-                self.ocr_reader = easyocr.Reader(['en'], gpu=True)  # 可改为 True 使用 GPU
+            else:'''
+            self.ocr_reader = easyocr.Reader(['en'], gpu=True)  # 可改为 True 使用 GPU
         img = self._load(img_input)
         roi, (ox, oy) = self._get_roi(img, a_percentage)
 
@@ -168,8 +169,8 @@ class MyVision:
         cv2.imwrite("debug_1_resized_color.jpg", img2)          # 放大后的彩色原图
         cv2.imwrite("debug_2_gray.jpg", gray)
         '''
-        #image_path = "./debug_3_processed.jpg"
-        #cv2.imwrite(image_path, processed_img)     
+        image_path = "./debug_3_processed.jpg"
+        cv2.imwrite(image_path, processed_img)     
         
 
         if math:

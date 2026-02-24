@@ -7,12 +7,12 @@
       "text": "",
       "points": [
         [
-          252.16138328530258,
-          241.18876080691646
+          214.50000000000003,
+          338.125
         ],
         [
-          281.5561959654178,
-          255.3097982708934
+          313.25,
+          356.25
         ]
       ],
       "group_id": null,
@@ -20,7 +20,7 @@
       "flags": {}
     }
   ],
-  "imagePath": "fwq_02.png",
+  "imagePath": "deadman.png",
   "imageData": null,
   "imageHeight": 955,
   "imageWidth": 524

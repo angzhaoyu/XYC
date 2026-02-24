@@ -18,10 +18,28 @@
       "group_id": null,
       "shape_type": "rectangle",
       "flags": {}
+    },
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          213.26984126984127,
+          338.73015873015873
+        ],
+        [
+          312.3174603174603,
+          357.46031746031747
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
     }
   ],
   "imagePath": "shezhi_01.png",
   "imageData": null,
   "imageHeight": 955,
-  "imageWidth": 524
+  "imageWidth": 524,
+  "text": ""
 }
