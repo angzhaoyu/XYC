@@ -261,12 +261,12 @@ class TransportTask:
         print("=" * 60)
 
 
-''''''
+'''
 if __name__ == "__main__":
     task = TransportTask(app_name=1249806)
     #task.I_beasts()
     task.run()
     #task.tra_bird()
 
-    
+'''
     
