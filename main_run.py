@@ -14,6 +14,8 @@ def safe_activate(w):
             w.restore()
             time.sleep(0.3)
         w.activate()
+        time.sleep(0.3)
+        
     except Exception as e:
         # 错误码0实际上是成功，pygetwindow的bug
         if "0" in str(e):
@@ -48,4 +50,4 @@ for round_num in range(max_rounds):
             print(f"❌ 任务出错: {e}")
 
     print(f"\n⏳ 第 {round_num + 1} 轮完成，等待10秒...")
-    time.sleep(60)
+    time.sleep(30)

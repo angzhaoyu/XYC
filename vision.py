@@ -168,10 +168,10 @@ class MyVision:
         '''
         cv2.imwrite("debug_1_resized_color.jpg", img2)          # 放大后的彩色原图
         cv2.imwrite("debug_2_gray.jpg", gray)
-        '''
+        
         image_path = "./debug_3_processed.jpg"
         cv2.imwrite(image_path, processed_img)     
-        
+        '''
 
         if math:
             #img11 = cv2.imread(image_path)      

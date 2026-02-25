@@ -64,6 +64,7 @@ class TransportTask:
 
                 n_sz = (self.xian + self.chose) // n_res
                 n_sz = max(n_sz, 1)
+                n_sz = min(n_sz, self.shangxian)
                 print(f"分配数量: {n_sz}个资源")
 
                 if n_sz == 1:
@@ -152,8 +153,9 @@ class TransportTask:
         # limit_1 for chose/shangxian
         limit_1 = self.vision.limit_scope("tasks/transport/mouse_combo/chose.png", scale=1.0)
         ocr_sel = self.vision.detect_text(screenshot, a_percentage=limit_1, n=16)
+        ocr_sel = fix_ocr_text(ocr_sel[0].get('text', '') if ocr_sel else '') if ocr_sel else ''
         print(f"ocr_sel识别结果: {ocr_sel}")
-        raw_sel = ocr_sel[0].get('text', '') if ocr_sel else ''     
+        raw_sel = ocr_sel
         match_sel = re.search(r'(\d+)/(\d+)', raw_sel)
         if match_sel:
             chose     = int(match_sel.group(1))
@@ -225,16 +227,22 @@ class TransportTask:
             time.sleep(1)
             for i in range(3):
                 state = self.mgr.get_states()
-                if state != 'guankan' or state != 'lingdi':
+                if state != 'guankan' and state != 'lingdi':
                     self.op.click_json("tasks/transport/mouse_combo/jixukan.png")
                     time.sleep(5)
                     self.op.click_json("tasks/transport/mouse_combo/guanbi.png")
+            self.I_resources()
+            self.choose_beast()
             self.I_resources()
             self.choose_beast()
 
 
     def run(self, t_m = False):       
         print("="*60 ,"🚀 开始运输任务", sep="\n" )
+        self.xian = None
+        self.chose = None
+        self.shangxian = None
+        # ====================================
         self.mgr.get_states()
         self.mgr.navigate_to("lingdi")
         self.I_resources()
@@ -260,6 +268,96 @@ class TransportTask:
             print(f"❌ 异常: {e}")
         print("=" * 60)
 
+
+
+import re
+
+def fix_ocr_text(text):
+    """
+    修正 OCR 识别结果，将常见误识别字符纠正为 "x/y" 格式
+    x 应该是 0 或 1，y 是数字
+    """
+    if not text:
+        return text
+    
+    # 转小写处理（可选）
+    text = text.strip()
+    
+    # 常见的 "/" 误识别字符
+    slash_mistakes = ['l', 'L', 'I', 'i', '|', '\\', '.', '!', ']', '[', '丨']
+    
+    # 常见的数字误识别映射
+    digit_fixes = {
+        'o': '0', 'O': '0', 'D': '0',
+        'l': '1', 'L': '1', 'I': '1', 'i': '1', '|': '1',
+        'z': '2', 'Z': '2',
+        's': '5', 'S': '5',
+        'b': '6', 'G': '6',
+        'q': '9', 'g': '9',
+    }
+    
+    # 尝试匹配 "数字 + 分隔符 + 数字" 的模式
+    # 第一个字符应该是 0 或 1（或其误识别形式）
+    
+    result = list(text)
+    
+    # 如果长度为3，假设格式是 "x/y"
+    if len(result) == 3:
+        # 修正第一个字符（应该是 0 或 1）
+        if result[0] in ['o', 'O', 'D']:
+            result[0] = '0'
+        elif result[0] in ['l', 'L', 'I', 'i', '|']:
+            result[0] = '1'
+        
+        # 修正中间的分隔符（应该是 /）
+        if result[1] in slash_mistakes:
+            result[1] = '/'
+        
+        # 修正第三个字符（应该是数字）
+        if result[2] in digit_fixes:
+            result[2] = digit_fixes[result[2]]
+    
+    # 如果长度为2，可能漏识别了分隔符，如 "12" 实际是 "1/2"
+    elif len(result) == 2:
+        first = result[0]
+        second = result[1]
+        
+        # 修正第一个字符
+        if first in ['o', 'O', 'D']:
+            first = '0'
+        elif first in ['l', 'L', 'I', 'i', '|']:
+            first = '1'
+        
+        # 修正第二个字符
+        if second in digit_fixes:
+            second = digit_fixes[second]
+        
+        return f"{first}/{second}"
+    
+    return ''.join(result)
+
+
+def parse_ocr_ratio(text):
+    """
+    解析 OCR 结果，返回 (当前数量, 上限) 元组
+    例如: "1/3" -> (1, 3)
+    """
+    fixed_text = fix_ocr_text(text)
+    
+    # 尝试用 / 分割
+    if '/' in fixed_text:
+        parts = fixed_text.split('/')
+        if len(parts) == 2:
+            try:
+                chose = int(parts[0])
+                shangxian = int(parts[1])
+                return chose, shangxian
+            except ValueError:
+                pass
+    
+    # 解析失败返回 None
+    print(f"OCR 解析失败: 原文='{text}', 修正后='{fixed_text}'")
+    return None, None
 
 '''
 if __name__ == "__main__":
