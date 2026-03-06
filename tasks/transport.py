@@ -229,7 +229,7 @@ class TransportTask:
                     index += 1
                 self.op.capture(file_path) 
             if mu == True:
-                region = self.secten("tasks/transport/birds/438.png")
+                region = self.secten("tasks/transport/birds/451.png")
                 if region:
                     self.mgr.navigate_to('lingdi')
                     return None

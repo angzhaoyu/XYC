@@ -35,7 +35,7 @@ class MyVision:
     def _load_yolo_model(self):
         if self.model is None and os.path.exists(self.yolo_model_path):
             #print("正在加载 YOLO 模型...（仅首次调用 detect_yolo 时加载）")
-            self.model = torch.hub.load('ultralytics/yolov5', 'custom', path=self.yolo_model_path, device='cpu')  # 可改为 'cuda' 如果需要
+            self.model = torch.hub.load('ultralytics/yolov5', 'custom', path=self.yolo_model_path, device='cpu')  # 可改为 cup 'cuda' 如果需要
             #print("YOLO 模型加载完成！")
 
     # --- 修正后的 YOLO 识别函数（延迟加载）---

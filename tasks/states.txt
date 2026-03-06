@@ -3,12 +3,14 @@ tanchuang = "tasks/pop-states/tanchuang" #新年弹窗
 tanchuang2 = "tasks/pop-states/tanchuang2" #活动弹窗2
 huode = "tasks/pop-states/huode" #获得
 txtc = "tasks/pop-states/txtc" #探险弹窗
+liaotian = "tasks/pop-states/liaotian"
 
 #pop-change
 tanchuang_tanchuang2_01 = "tasks/pop-change/tanchuang_tanchuang2_01"
 tanchuang2_zhuye_01 = "tasks/pop-change/tanchuang2_zhuye_01"
 huode_shangdian_01 = "tasks/pop-change/huode_shangdian_01"
 txtc_zhuye_01 = "tasks/pop-change/txtc_zhuye_01"
+liaotian_lingdi_01= "tasks/pop-change/liaotian_lingdi_01"
 
 #page-states
 begin = "tasks/page-states/begin" #开始游戏

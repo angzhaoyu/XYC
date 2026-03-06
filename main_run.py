@@ -27,7 +27,7 @@ def safe_activate(w):
 
 # ========== 配置 ==========
 max_rounds = 500
-daily_collect_every_n = 50 # 👈 每隔多少轮执行一次 DailyCollect
+daily_collect_every_n = 500 # 👈 每隔多少轮执行一次 DailyCollect
 # ===========================
 
 # 预创建任务
