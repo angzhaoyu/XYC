@@ -155,7 +155,7 @@ class Operator:
         elif p.suffix == "":
             p = p.with_suffix(".json")
 
-        data = json.load(open(p))
+        data = json.load(open(p, encoding='utf-8'))
 
         # 提取第一个矩形区域的 points（labelme标准格式）
         box = data["shapes"][0]["points"]

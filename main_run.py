@@ -1,6 +1,7 @@
 import time
 import pygetwindow as gw
 from tasks.transport import TransportTask
+from tasks.daily_collect import DailyCollect
 
 windows = gw.getWindowsWithTitle("幸福小渔村")
 if not windows:
@@ -15,39 +16,50 @@ def safe_activate(w):
             time.sleep(0.3)
         w.activate()
         time.sleep(0.3)
-        
     except Exception as e:
-        # 错误码0实际上是成功，pygetwindow的bug
         if "0" in str(e):
-            pass  # 忽略，实际已激活成功
+            pass
         else:
             print(f"⚠ 真正的激活错误: {e}")
             return False
     time.sleep(0.5)
     return True
 
+# ========== 配置 ==========
+max_rounds = 500
+daily_collect_every_n = 50 # 👈 每隔多少轮执行一次 DailyCollect
+# ===========================
+
 # 预创建任务
 window_tasks = []
 for w in windows:
     print(f"初始化窗口: {w.title}, 句柄: {w._hWnd}")
-    task = TransportTask(app_name=w._hWnd)
-    window_tasks.append((w, task))
+    transport = TransportTask(app_name=w._hWnd)
+    daily = DailyCollect(app_name=w._hWnd)  # 👈 每个窗口各创建一个
+    window_tasks.append((w, transport, daily))
 
-max_rounds = 500
 for round_num in range(max_rounds):
     print(f"\n{'='*60}")
-    print(f"📍 第 {round_num + 1} 轮")
-
-    for w, task in window_tasks:
+ 
+    for w, transport, daily in window_tasks:
         print(f"\n▶ 切换窗口: {w.title} (句柄: {w._hWnd})")
-        
         if not safe_activate(w):
             continue
 
+        if round_num - daily_collect_every_n == 0:
+            try:
+                print(f"  📦 执行 DailyCollect...")
+                daily.run()
+            except Exception as e:
+                print(f"❌ DailyCollect 任务出错: {e}")
+    
+        # 每轮都跑 TransportTask
         try:
-            task.run()
+            transport.run()
         except Exception as e:
-            print(f"❌ 任务出错: {e}")
+            print(f"❌ Transport 任务出错: {e}")
 
-    print(f"\n⏳ 第 {round_num + 1} 轮完成，等待10秒...")
-    time.sleep(30)
+        # 仅第 N 轮跑 DailyCollect
+        
+    print(f"\n⏳ 第 {round_num + 1} 轮完成，等待30秒...")
+    time.sleep(60)

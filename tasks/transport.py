@@ -31,7 +31,7 @@ class TransportTask:
 
     def choose_beast(self):
         print("开始选择海兽")
-        MAX_RETRY = 20
+        MAX_RETRY = 5
         for attempt in range(MAX_RETRY):
             self.mgr.navigate_to('lingdi')
             n_res = self.res0
@@ -193,22 +193,18 @@ class TransportTask:
 
         print(f"当前选择: {self.chose}, 上限: {shangxian}, 闲: {xian}")
 
+    def secten(self,  path, scale=1):
+        limit = self.vision.limit_scope(path, scale=scale)
+        region =  self.vision.find_image(self.op.capture(), path, a_percentage=limit)
+        return region         
             
             
-            
-    def tra_bird(self, stop_m = False):
+    def tra_bird(self, stop_m = False, imgsave=False, mu =True ):
         self.mgr.navigate_to('lingdi')
         self.mgr.get_states()
         self.I_resources()
         if self.xian == 0:
             return None
-            """print("没有闲位，等待5秒")
-            num_t1 = len(self.transport)
-            num_t2 = len(self.transport)
-            while num_t1 == num_t2:
-                self.I_resources()
-                num_t1 = len(self.transport)
-                time.sleep(5)"""
 
         for i in range(5):
             self.I_resources()
@@ -221,6 +217,23 @@ class TransportTask:
             state = self.mgr.get_states()
             pass
         if self.mgr.get_states() == 'guankan':
+            if imgsave == True:
+                save_dir = "./screenshots"
+                if not os.path.exists(save_dir):
+                    os.makedirs(save_dir)
+                index = 1
+                while True:
+                    file_path = os.path.join(save_dir, f"{index:03d}.png")
+                    if not os.path.exists(file_path):
+                        break
+                    index += 1
+                self.op.capture(file_path) 
+            if mu == True:
+                region = self.secten("tasks/transport/birds/438.png")
+                if region:
+                    self.mgr.navigate_to('lingdi')
+                    return None
+
             self.op.click_json("tasks/transport/mouse_combo/guankan.png")
             time.sleep(35)
             self.op.click_json("tasks/transport/mouse_combo/guanbi.png")

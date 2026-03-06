@@ -151,7 +151,7 @@ class MyVision:
             if chinese:
                 self.ocr_reader = easyocr.Reader(['ch_sim'], gpu=True)  # 可改为 True 使用 GPU
             else:'''
-            self.ocr_reader = easyocr.Reader(['en'], gpu=True)  # 可改为 True 使用 GPU
+            self.ocr_reader = easyocr.Reader(['en'], gpu=False)  # 可改为 True 使用 GPU
         img = self._load(img_input)
         roi, (ox, oy) = self._get_roi(img, a_percentage)
 
