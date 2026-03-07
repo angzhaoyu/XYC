@@ -3,14 +3,14 @@ tanchuang = "tasks/pop-states/tanchuang" #新年弹窗
 tanchuang2 = "tasks/pop-states/tanchuang2" #活动弹窗2
 huode = "tasks/pop-states/huode" #获得
 txtc = "tasks/pop-states/txtc" #探险弹窗
-liaotian = "tasks/pop-states/liaotian"
+liaotian = "tasks/pop-states/liaotian" #聊天
 
 #pop-change
 tanchuang_tanchuang2_01 = "tasks/pop-change/tanchuang_tanchuang2_01"
 tanchuang2_zhuye_01 = "tasks/pop-change/tanchuang2_zhuye_01"
 huode_shangdian_01 = "tasks/pop-change/huode_shangdian_01"
 txtc_zhuye_01 = "tasks/pop-change/txtc_zhuye_01"
-liaotian_lingdi_01= "tasks/pop-change/liaotian_lingdi_01"
+liaotian_lingdi_01 = "tasks/pop-change/liaotian_lingdi_01"
 
 #page-states
 begin = "tasks/page-states/begin" #开始游戏
@@ -33,6 +33,7 @@ sxklb = "tasks/page-states/sxklb" #刷新卡礼包
 hszlb = "tasks/page-states/hszlb" #海兽战力榜
 szpfb = "tasks/page-states/szpfb" #水族评分榜
 xiedao = "tasks/page-states/xiedao" #蟹岛升级
+caini = "tasks/page-states/caini" #彩泥
 caidan = "tasks/page-states/caidan" #菜单
 shezhi = "tasks/page-states/shezhi" #设置
 shangdian = "tasks/page-states/shangdian" #商店
@@ -64,6 +65,8 @@ lingdi_ldpaihang_01 = "tasks/page-change/lingdi_ldpaihang_01"
 lingdi_djsd_01 = "tasks/page-change/lingdi_djsd_01"
 lingdi_sxklb_01 = "tasks/page-change/lingdi_sxklb_01"
 lingdi_xiedao_01 = "tasks/page-change/lingdi_xiedao_01"
+lingdi_caini_01 = "tasks/page-change/lingdi_caini_01"
+lingdi_liaotian_01 = "tasks/page-change/lingdi_liaotian_01"
 shuaxin_lingdi_01 = "tasks/page-change/shuaxin_lingdi_01"
 ycfrd_zhuye_01 = "tasks/page-change/ycfrd_zhuye_01"
 ycfrd_hszlb_01 = "tasks/page-change/ycfrd_hszlb_01"
@@ -95,4 +98,5 @@ yuer_zhp_01 = "tasks/page-change/yuer_zhp_01"
 zhuanshi_zhp_01 = "tasks/page-change/zhuanshi_zhp_01"
 fhs_djsd_01 = "tasks/page-change/fhs_djsd_01"
 sxk_djsd_01 = "tasks/page-change/sxk_djsd_01"
+caini_lingdi_01 = "tasks/page-change/caini_lingdi_01"
 

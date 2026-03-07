@@ -180,11 +180,12 @@ class TransportTask:
         ocr_xian = self.vision.detect_text(screenshot, a_percentage=limit_2, n=16, math=True)
         #print("=" * 60)
         #print(f"xian现有结果: {ocr_xian}")
-
-
-        raw_xian = ocr_xian[0].get('text', '') if ocr_xian else ''
+        raw_xian = ocr_xian[0].get('text', '') if (ocr_xian and len(ocr_xian) > 0) else ''
         match_xian = re.search(r'(\d+)', raw_xian)
-        xian = int(match_xian.group(1))
+        if match_xian:
+            xian = int(match_xian.group(1))
+        else:
+            xian = 0
         self.chose = int(chose)
         if xian != 0 and chose == 0:
             self.chose = 1
@@ -197,7 +198,22 @@ class TransportTask:
         limit = self.vision.limit_scope(path, scale=scale)
         region =  self.vision.find_image(self.op.capture(), path, a_percentage=limit)
         return region         
-            
+
+    def caini(self):
+        self.mgr.navigate_to('lingdi')
+        self.I_resources()
+        print(f"当前资源: {self.res0}, 已运输: {len(self.transport)}")
+        if self.res0 + len(self.transport) == 6:
+            return
+        path0 = "tasks/transport/caini/00.png"
+        if self.secten(path0):
+            return 
+        self.mgr.navigate_to('caini')
+        path1 = "tasks/transport/caini/1.png"
+        self.op.click_json(path1)
+        time.sleep(0.5)
+        self.mgr.navigate_to('lingdi')
+
             
     def tra_bird(self, stop_m = False, imgsave=False, mu =True ):
         self.mgr.navigate_to('lingdi')
@@ -273,6 +289,7 @@ class TransportTask:
             if self.xian == 0:
                 break
         try:
+            self.caini()
             if self.bird:
                 if len(self.transport) + len(self.bird) != 6:
                     self.tra_bird() 
@@ -374,10 +391,11 @@ def parse_ocr_ratio(text):
 
 '''
 if __name__ == "__main__":
-    task = TransportTask(app_name=1249806)
+    task = TransportTask("幸福小渔村")
     #task.I_beasts()
-    task.run()
+    #task.run()
     #task.tra_bird()
-
+    task.caini()
 '''
+
     
