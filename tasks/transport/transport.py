@@ -13,10 +13,10 @@ from tasks.transport.caini import CainiTask
 
 
 class TransportTask:
-    def __init__(self, app_name=None):
+    def __init__(self, app_name=None, mouse_lock=None):
         self.vision = MyVision(yolo_model_path="models/best.pt")
-        self.mgr = StateManager("tasks/states/states.txt", app_name=app_name)
-        self.op = Operator(app_name)
+        self.op = Operator(app_name, mouse_lock=mouse_lock)
+        self.mgr = StateManager("tasks/states/states.txt", app_name=app_name, operator=self.op)
 
         # 三个子模块
         self.det = LingdiDetector(self.vision, self.op)
@@ -78,7 +78,6 @@ class TransportTask:
                     self.mgr.get_states()
                     self.op.click_json('tasks/transport/mouse_combo/yjsz.png')
                     self.det.xian -= self.det.shangxian + 1
-
                 self.mgr.states_change("shangzhen_lingdi_02")
                 print(f"完成选择海兽, 当前闲: {self.det.xian}")
                 return
@@ -123,7 +122,8 @@ class TransportTask:
             print(f"❌ 异常: {e}")
 
         print("=" * 60)
-""""""
+"""
 if __name__ == "__main__":
     transport_task = TransportTask(app_name="幸福小渔村")
     transport_task.run()
+"""

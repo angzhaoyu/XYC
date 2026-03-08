@@ -157,17 +157,20 @@ class MyVision:
                                         path=self.yolo_model_path, device='cpu')
 
     def detect_yolo(self, img_input, a_percentage=None):
-        if isinstance(img_input, np.ndarray):
-            os.makedirs("window", exist_ok=True)
-            save_path_temp = "window/temp_image.png"
-            cv2.imwrite(save_path_temp, img_input)
-            img_input = save_path_temp
-            print(f"YOLO 识别输入: {img_input}")
+        """★ 不再写临时文件，避免多线程冲突"""
         self._load_yolo_model()
-        img_bgr = self._load(img_input)
+
+        if isinstance(img_input, np.ndarray):
+            img_bgr = img_input
+        else:
+            img_bgr = self._load(img_input)
+
+        if img_bgr is None:
+            return []
+
         roi_bgr, (ox, oy) = self._get_roi(img_bgr, a_percentage)
         roi_rgb = cv2.cvtColor(roi_bgr, cv2.COLOR_BGR2RGB)
-        print("YOLO 识别中...")
+
         results = []
         if self.model:
             df = self.model(roi_rgb).pandas().xyxy[0]
@@ -179,7 +182,6 @@ class MyVision:
                     "conf": r['confidence']
                 })
         return results
-
     def _load(self, data):
         if isinstance(data, str):
             img = cv2.imdecode(np.fromfile(data, dtype=np.uint8), cv2.IMREAD_COLOR)

@@ -11,8 +11,11 @@ from tools.operate import Operator
 
 
 class StateManager:
-    def __init__(self, states_file, app_name=None, screenshot_path=None, yolo_model="models/best.pt"):
-        self.operator = Operator(app_name)
+    def __init__(self, states_file, app_name=None,operator=None, screenshot_path=None, yolo_model="models/best.pt"):
+        if operator:
+            self.operator = operator          # 共享外部传入的（带锁）
+        else:
+            self.operator = Operator(app_name) # 单线程兼容
         self.screenshot_path = screenshot_path
         self.states_file_path = Path(states_file).resolve()
         self.base_dir = self.states_file_path.parent.parent
@@ -332,6 +335,7 @@ class StateManager:
 # ==================== 运行 ====================
 mgr = StateManager("tasks/states/states.txt", app_name="幸福小渔村")
 mgr.get_states()
-#mgr.navigate_to("caidan")
-"""
+mgr.navigate_to("caidan")
+#
 
+"""
