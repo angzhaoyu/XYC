@@ -1,8 +1,17 @@
 tasks/states/*
+tasks/transport/birds/*
+tasks/transport/caini/*
+tasks/transport/mouse_combo/*
+tasks/transport/rimges/*
 screenshots/*
+models/*
 tasks/daily-collect/*
 window/*
 python学习.ipynb
 test.ipynb
 main_run.py
 main.py
+tasks/change-regions/*
+
+
+
