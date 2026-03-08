@@ -115,7 +115,6 @@ class TransportTask:
             n_res = self.det.res0
             if self.det.xian == 0:
                 break
-
         try:
             if self.det.bird:
                 if len(self.det.transport) + len(self.det.bird) != 6:
