@@ -1,18 +1,19 @@
-import sys
+
 import time
-from pathlib import Path
 from collections import deque
 
+import sys
+from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
-import vision
-from operate import Operator
+
+from tools.vision import MyVision
+from tools.operate import Operator
 
 
 class StateManager:
     def __init__(self, states_file, app_name=None, screenshot_path=None, yolo_model="models/best.pt"):
         self.operator = Operator(app_name)
         self.screenshot_path = screenshot_path
-
         self.states_file_path = Path(states_file).resolve()
         self.base_dir = self.states_file_path.parent.parent
 
@@ -20,7 +21,7 @@ class StateManager:
         self.states_config = self._parse_states(self.states_file_path)
 
         # 初始化识别
-        self.v = vision.MyVision(yolo_model_path=yolo_model)
+        self.v = MyVision(yolo_model_path=yolo_model)
         # 仅用 page-change 构建导航图（pop 不参与导航）
         self.state_graph = self._build_graph()
 
@@ -327,8 +328,10 @@ class StateManager:
         print(f"❌ 转换失败: {key}")
         return False
 
-
+"""
 # ==================== 运行 ====================
-"""mgr = StateManager("tasks/states.txt", app_name="幸福小渔村")
+mgr = StateManager("tasks/states/states.txt", app_name="幸福小渔村")
 mgr.get_states()
-mgr.navigate_to("caidan")"""
+#mgr.navigate_to("caidan")
+"""
+

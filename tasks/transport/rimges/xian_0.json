@@ -1,0 +1,27 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2",
+      "text": "",
+      "points": [
+        [
+          334.44897959183663,
+          834.6428571428572
+        ],
+        [
+          348.73469387755097,
+          851.9897959183673
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "xian_0.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524
+}

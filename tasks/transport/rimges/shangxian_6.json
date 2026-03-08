@@ -1,0 +1,28 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1",
+      "text": "",
+      "points": [
+        [
+          153.46358792184725,
+          493.75222024866787
+        ],
+        [
+          175.0769230769231,
+          507.30769230769226
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "shangxian_6.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524,
+  "text": ""
+}

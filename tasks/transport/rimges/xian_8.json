@@ -1,0 +1,28 @@
+{
+  "version": "0.4.29",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2",
+      "text": "",
+      "points": [
+        [
+          335.3644859813084,
+          835.4439252336448
+        ],
+        [
+          348.4485981308411,
+          848.9953271028037
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "xian_8.png",
+  "imageData": null,
+  "imageHeight": 955,
+  "imageWidth": 524,
+  "text": ""
+}
