@@ -1,74 +1,59 @@
-"""截图模块 - 负责高效截图"""
+# screen_capture.py 中
 
-import cv2
+import mss
 import numpy as np
-import os
+import cv2
 
 
 class ScreenCapture:
     def __init__(self, use_mss=True):
-        """
-        Args:
-            use_mss: True 用 mss（快），False 用 pyautogui（兼容）
-        """
         self.use_mss = use_mss
-        self._sct = None
-
-        if use_mss:
-            import mss
-            self._sct = mss.mss()
 
     def grab(self, region=None, scale=1):
-        """
-        截图
-        Args:
-            region: dict {"left", "top", "width", "height"} 或 None(全屏)
-            scale:  放大倍数，1=原始，2=放大2倍
-        Returns:
-            numpy 数组 (BGR)
-        """
         if self.use_mss:
-            img = self._grab_mss(region)
+            return self._grab_mss(region, scale)
         else:
-            img = self._grab_pyautogui(region)
+            return self._grab_pyautogui(region, scale)
 
-        if img is None:
-            return None
+    def _grab_mss(self, region, scale):
+        # ★ 每次截图新建 mss 实例，线程安全
+        with mss.mss() as sct:
+            if region:
+                monitor = {
+                    "left": region["left"],
+                    "top": region["top"],
+                    "width": region["width"],
+                    "height": region["height"],
+                }
+            else:
+                monitor = sct.monitors[0]
 
-        if scale != 1:
-            h, w = img.shape[:2]
-            img = cv2.resize(
-                img, (int(w * scale), int(h * scale)),
-                interpolation=cv2.INTER_NEAREST
-            )
+            img = sct.grab(monitor)
+            frame = np.array(img)
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
 
-        return img
+            if scale != 1:
+                frame = cv2.resize(frame, None, fx=scale, fy=scale)
 
-    def _grab_mss(self, region):
-        """使用 mss 截图（推荐，快）"""
-        import mss
-        if self._sct is None:
-            self._sct = mss.mss()
+            return frame
 
-        monitor = region if region else self._sct.monitors[1]
-        frame = np.array(self._sct.grab(monitor))
-        return cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
-
-    def _grab_pyautogui(self, region):
-        """使用 pyautogui 截图（慢，但兼容性好）"""
+    def _grab_pyautogui(self, region, scale):
         import pyautogui
         if region:
-            r = (region["left"], region["top"], region["width"], region["height"])
-            img = pyautogui.screenshot(region=r)
+            img = pyautogui.screenshot(region=(
+                region["left"], region["top"],
+                region["width"], region["height"]
+            ))
         else:
             img = pyautogui.screenshot()
-        return cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
 
-    @staticmethod
-    def save(img, path):
-        """保存截图"""
-        folder = os.path.dirname(path)
-        if folder and not os.path.exists(folder):
-            os.makedirs(folder)
-        cv2.imwrite(path, img)
-        print(f"📸 截图已保存: {path}")
+        frame = np.array(img)
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+
+        if scale != 1:
+            frame = cv2.resize(frame, None, fx=scale, fy=scale)
+
+        return frame
+
+    def save(self, img, path):
+        cv2.imwrite(str(path), img)

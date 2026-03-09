@@ -93,14 +93,51 @@ class Operator:
 
     # ==================== 鼠标锁 ====================
 
+
     @contextmanager
-    def _mouse_session(self):
+    def locked_step(self):
+        """
+        高层锁：整个 capture→分析→click 作为一个原子步骤
+        RLock 可重入，内部的 capture/click 再加锁不会死锁
+        """
         if self._lock:
             self._lock.acquire()
             try:
-                if self.wm and not self._lock:
+                if self.wm:
+                    rect = self.wm.get_rect()
+                    title_x = (rect[0] + rect[2]) // 2
+                    title_y = rect[1] + 5
+                    pyautogui.moveTo(title_x, title_y, duration=0)
+                    time.sleep(0.02)
                     self.wm.activate()
                     time.sleep(0.05)
+                yield
+            finally:
+                self._lock.release()
+        else:
+            yield
+
+    @contextmanager
+    def _mouse_session(self):
+        if self._lock:
+            # ★ 带超时获取锁，防止永久阻塞
+            acquired = self._lock.acquire(timeout=30)
+            if not acquired:
+                print("⚠️ 获取鼠标锁超时，跳过本次操作")
+                yield
+                return
+            try:
+                if self.wm:
+                    try:
+                        rect = self.wm.get_rect()
+                        title_x = (rect[0] + rect[2]) // 2
+                        title_y = rect[1] + 5
+                        pyautogui.moveTo(title_x, title_y, duration=0)
+                        time.sleep(0.02)
+                        self.wm.activate()
+                        time.sleep(0.05)
+                    except Exception as e:
+                        print(f"⚠️ 激活窗口失败: {e}")
                 yield
             finally:
                 self._lock.release()
@@ -131,7 +168,7 @@ class Operator:
     # ==================== 窗口操作 ====================
 
     def activate(self):
-        if self.wm and not self._lock:
+        if self.wm:
             self.wm.activate()
             return True
         return False
@@ -193,7 +230,7 @@ class Operator:
         self.check_state()
         with self._mouse_session():
             if activate_first and self.wm and not self._lock:
-                self.wm.activate()
+                self.wm.activate()           # 单线程才在这里激活（多线程已在 _mouse_session 激活过了）
             region = self.wm.get_region() if self.wm else None
             img = self.cap.grab(region=region, scale=self.scale)
             if img is not None and save_path:

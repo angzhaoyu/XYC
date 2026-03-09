@@ -149,6 +149,101 @@ class MyVision:
             print(f"匹配过程中出错: {e}")
         return None
 
+    def match_score(self, img1_input, img2_input, a_percentage=None):
+        """只返回匹配分数"""
+        img1 = self._load(img1_input) if not isinstance(img1_input, np.ndarray) else img1_input
+        img2_full = self._load(img2_input)
+        if img1 is None or img2_full is None:
+            return -1
+
+        roi, _ = self._get_roi(img1, a_percentage)
+        tpl = self._get_template_roi(img2_input, img2_full)
+
+        if len(roi.shape) != len(tpl.shape):
+            if len(roi.shape) == 3:
+                tpl = cv2.cvtColor(tpl, cv2.COLOR_GRAY2BGR)
+            else:
+                roi = cv2.cvtColor(roi, cv2.COLOR_GRAY2BGR)
+        roi = np.ascontiguousarray(roi.astype(np.uint8))
+        tpl = np.ascontiguousarray(tpl.astype(np.uint8))
+
+        sx, sy = self._calc_content_scale(img1, img2_full)
+        h_t, w_t = tpl.shape[:2]
+        nw = max(1, int(w_t * sx))
+        nh = max(1, int(h_t * sy))
+
+        if abs(sx - 1.0) > 0.01 or abs(sy - 1.0) > 0.01:
+            interp = cv2.INTER_AREA if sx < 1 else cv2.INTER_LINEAR
+            tpl = cv2.resize(tpl, (nw, nh), interpolation=interp)
+
+        h_roi, w_roi = roi.shape[:2]
+        if nw >= w_roi or nh >= h_roi:
+            return -1
+
+        try:
+            res = cv2.matchTemplate(roi, tpl, cv2.TM_CCOEFF_NORMED)
+            _, max_val, _, _ = cv2.minMaxLoc(res)
+            return max_val
+        except Exception:
+            return -1 
+
+    def find_image_score(self, img1_input, img2_input, a_percentage=None):
+        """和 find_image 一样，但返回 (box, score)，box 可能为 None"""
+        img1_path = str(img1_input) if isinstance(img1_input, (str, Path)) else img1_input
+        img2_path = str(img2_input) if isinstance(img2_input, (str, Path)) else img2_input
+        img1 = self._load(img1_path)
+        img2_full = self._load(img2_path)
+        if img1 is None or img2_full is None:
+            return None, -1
+
+        roi_img1, (ox, oy) = self._get_roi(img1, a_percentage)
+        img2_roi = self._get_template_roi(img2_path, img2_full)
+
+        if len(roi_img1.shape) != len(img2_roi.shape):
+            if len(roi_img1.shape) == 3:
+                img2_roi = cv2.cvtColor(img2_roi, cv2.COLOR_GRAY2BGR)
+            else:
+                roi_img1 = cv2.cvtColor(roi_img1, cv2.COLOR_GRAY2BGR)
+        roi_img1 = np.ascontiguousarray(roi_img1.astype(np.uint8))
+        img2_roi = np.ascontiguousarray(img2_roi.astype(np.uint8))
+
+        sx, sy = self._calc_content_scale(img1, img2_full)
+        h_tpl, w_tpl = img2_roi.shape[:2]
+        h_roi, w_roi = roi_img1.shape[:2]
+
+        best_val = -1
+        best_loc = None
+        best_w, best_h = w_tpl, h_tpl
+
+        scale_list = [(sx, sy), (1.0, 1.0)]
+        for off in [0.95, 0.97, 1.03, 1.05]:
+            scale_list.append((sx * off, sy * off))
+
+        for s_x, s_y in scale_list:
+            nw = max(1, int(w_tpl * s_x))
+            nh = max(1, int(h_tpl * s_y))
+            if nw >= w_roi or nh >= h_roi or nw < 3 or nh < 3:
+                continue
+            interp = cv2.INTER_AREA if s_x < 1 else cv2.INTER_LINEAR
+            resized = cv2.resize(img2_roi, (nw, nh), interpolation=interp)
+            try:
+                res = cv2.matchTemplate(roi_img1, resized, cv2.TM_CCOEFF_NORMED)
+                _, mv, _, ml = cv2.minMaxLoc(res)
+                if mv > best_val:
+                    best_val = mv
+                    best_loc = ml
+                    best_w, best_h = nw, nh
+            except Exception:
+                continue
+
+        if best_val > 0 and best_loc is not None:
+            box = [[float(best_loc[0] + ox), float(best_loc[1] + oy)],
+                [float(best_loc[0] + best_w + ox), float(best_loc[1] + best_h + oy)]]
+            return box, best_val
+
+        return None, best_val
+
+
     # ==================== 以下完全不变 ====================
 
     def _load_yolo_model(self):
