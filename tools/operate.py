@@ -16,7 +16,6 @@ from contextlib import contextmanager
 from tools.window_manager import WindowManager
 from tools.screen_capture import ScreenCapture
 
-
 # ==================== 工具函数（不变）====================
 
 def random_duration(min_time, max_time, use_gauss=True):
@@ -96,11 +95,10 @@ class Operator:
 
     @contextmanager
     def _mouse_session(self):
-        self.check_state()
         if self._lock:
             self._lock.acquire()
             try:
-                if self.wm:
+                if self.wm and not self._lock:
                     self.wm.activate()
                     time.sleep(0.05)
                 yield
@@ -133,7 +131,7 @@ class Operator:
     # ==================== 窗口操作 ====================
 
     def activate(self):
-        if self.wm:
+        if self.wm and not self._lock:
             self.wm.activate()
             return True
         return False
@@ -258,37 +256,102 @@ class Operator:
             abs_box = self.transform_box(box)
             x1, y1 = abs_box[0]
             x2, y2 = abs_box[1]
+
+            # ★ 打印出来看看
+            screen_w, screen_h = pyautogui.size()
+            print(f"🔍 drag 输入 box={box}")
+            print(f"🔍 转换后 abs_box=({x1:.0f},{y1:.0f})-({x2:.0f},{y2:.0f})")
+            print(f"🔍 屏幕={screen_w}x{screen_h}")
+
+            # ★ 先把 box 本身限制在屏幕内
+            x1 = max(0, min(screen_w, x1))
+            y1 = max(0, min(screen_h, y1))
+            x2 = max(0, min(screen_w, x2))
+            y2 = max(0, min(screen_h, y2))
+
             width, height = x2 - x1, y2 - y1
-            margin = 0.1
+            if width < 10 or height < 10:
+                print(f"⚠️ box 太小或无效，跳过拖动")
+                return
+
+            margin = 0.15
 
             directions = {
                 'up':    lambda: (x1 + width * (0.3 + random.uniform(0, 0.4)),
-                                  y1 + height * (0.8 - margin),
-                                  None, y1 + height * (0.2 + margin)),
+                                y1 + height * (0.8 - margin),
+                                None, y1 + height * (0.2 + margin)),
                 'down':  lambda: (x1 + width * (0.3 + random.uniform(0, 0.4)),
-                                  y1 + height * (0.2 + margin),
-                                  None, y1 + height * (0.8 - margin)),
+                                y1 + height * (0.2 + margin),
+                                None, y1 + height * (0.8 - margin)),
                 'left':  lambda: (x1 + width * (0.8 - margin),
-                                  y1 + height * (0.3 + random.uniform(0, 0.4)),
-                                  x1 + width * (0.2 + margin), None),
+                                y1 + height * (0.3 + random.uniform(0, 0.4)),
+                                x1 + width * (0.2 + margin), None),
                 'right': lambda: (x1 + width * (0.2 + margin),
-                                  y1 + height * (0.3 + random.uniform(0, 0.4)),
-                                  x1 + width * (0.8 - margin), None),
+                                y1 + height * (0.3 + random.uniform(0, 0.4)),
+                                x1 + width * (0.8 - margin), None),
             }
 
             if direction not in directions:
                 raise ValueError(f"direction 必须是 {list(directions.keys())}")
 
             sx, sy, ex, ey = directions[direction]()
-            if ex is None: ex = sx + random.uniform(-20, 20)
-            if ey is None: ey = sy + random.uniform(-20, 20)
+            if ex is None: ex = sx + random.uniform(-5, 5)   # ★ 减小随机量
+            if ey is None: ey = sy + random.uniform(-5, 5)
+
+            # ★ 限制在 box 范围内
+            sx = max(x1, min(x2, sx))
+            sy = max(y1, min(y2, sy))
+            ex = max(x1, min(x2, ex))
+            ey = max(y1, min(y2, ey))
+
+            # ★ 再限制在屏幕范围内
+            sx = max(5, min(screen_w - 5, sx))
+            sy = max(5, min(screen_h - 5, sy))
+            ex = max(5, min(screen_w - 5, ex))
+            ey = max(5, min(screen_h - 5, ey))
+
+            print(f"🔍 最终拖动: ({sx:.0f},{sy:.0f}) -> ({ex:.0f},{ey:.0f})")
 
             if reback:
-                pyautogui.moveTo(x1 + 5, sy, duration=0.2)
+                rb_x = max(x1, min(x2, x1 + 5))
+                rb_x = max(5, min(screen_w - 5, rb_x))
+                pyautogui.moveTo(rb_x, sy, duration=0.2)
                 pyautogui.dragTo(ex, sy, duration=duration, button='left')
                 return
 
             pyautogui.moveTo(sx, sy, duration=0.2)
             pyautogui.dragTo(ex, ey, duration=duration, button='left',
-                             tween=pyautogui.easeInOutQuad)
+                            tween=pyautogui.easeInOutQuad)
             print(f"↔️ 拖动 {direction}: ({sx:.0f},{sy:.0f}) -> ({ex:.0f},{ey:.0f})")
+
+
+    def drag_json(self, path, direction, duration=0.5, reback=False):
+        """读取 labelme JSON 的 box，转百分比后拖动"""
+        p = Path(path)
+        if p.suffix.lower() in {".png", ".jpg", ".jpeg", ""}:
+            p = p.with_suffix(".json")
+
+        data = json.load(open(p, encoding='utf-8'))
+        box = data["shapes"][0]["points"]
+
+        # ★ 模板像素 → 内容区域百分比（和 click_json 一样）
+        if self.wm and any(self.borders.values()):
+            iw = data.get('imageWidth', 0)
+            ih = data.get('imageHeight', 0)
+            if iw > 0 and ih > 0:
+                b = self.borders
+                cw = iw - b['left'] - b['right']
+                ch = ih - b['top'] - b['bottom']
+                if cw > 0 and ch > 0:
+                    box = [
+                        [max(0, (box[0][0] - b['left']) / cw),
+                        max(0, (box[0][1] - b['top'])  / ch)],
+                        [min(1, (box[1][0] - b['left']) / cw),
+                        min(1, (box[1][1] - b['top'])  / ch)],
+                    ]
+
+        print(f"   ↔️ 拖动: {Path(path).stem} | box: {box} | {direction}")
+        self.drag(box, direction, duration, reback)
+
+
+

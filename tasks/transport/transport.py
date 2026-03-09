@@ -13,9 +13,14 @@ from tasks.transport.caini import CainiTask
 
 
 class TransportTask:
-    def __init__(self, app_name=None, mouse_lock=None):
+    def __init__(self, app_name=None, mouse_lock=None,pause_event=None, stop_event=None):
         self.vision = MyVision(yolo_model_path="models/best.pt")
-        self.op = Operator(app_name, mouse_lock=mouse_lock)
+        self.op = Operator(
+            app_name,
+            mouse_lock=mouse_lock,
+            pause_event=pause_event,
+            stop_event=stop_event,
+        )
         self.mgr = StateManager("tasks/states/states.txt", app_name=app_name, operator=self.op)
 
         # 三个子模块

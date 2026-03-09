@@ -47,7 +47,7 @@ class BirdTask:
 
         # 观看流程
         self.op.click_json("tasks/transport/mouse_combo/guankan.png")
-        time.sleep(35)
+        time.sleep(40)
         self.op.click_json("tasks/transport/mouse_combo/guanbi.png")
         time.sleep(1)
 

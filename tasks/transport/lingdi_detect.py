@@ -173,7 +173,7 @@ class LingdiDetector:
 
     def secten(self, path, scale=1):
         limit = self.vision.limit_scope(path, scale=scale)
-        return self.vision.find_image(self.op.capture(), path, a_percentage=limit)
+        return self.vision.find_image(self.op.capture(), path, a_percentage=limit, threshold=0.6)
 """
 import sys
 from pathlib import Path

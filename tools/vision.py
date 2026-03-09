@@ -103,7 +103,7 @@ class MyVision:
         x2, y2 = min(w, x2), min(h, y2)
         return img[y1:y2, x1:x2], (x1, y1)
 
-    def find_image(self, img1_input, img2_input, a_percentage=None):
+    def find_image(self, img1_input, img2_input, a_percentage=None, threshold=0.7):
         """★ 窗口缩放时自动缩放模板"""
         img1_path = str(img1_input) if isinstance(img1_input, (str, Path)) else img1_input
         img2_path = str(img2_input) if isinstance(img2_input, (str, Path)) else img2_input
@@ -141,7 +141,7 @@ class MyVision:
         try:
             res = cv2.matchTemplate(roi_img1, img2_roi, cv2.TM_CCOEFF_NORMED)
             _, m_val, _, m_loc = cv2.minMaxLoc(res)
-            if m_val > 0.6:
+            if m_val > threshold:
                 h, w = img2_roi.shape[:2]
                 return [[float(m_loc[0] + ox), float(m_loc[1] + oy)],
                         [float(m_loc[0] + w + ox), float(m_loc[1] + h + oy)]]

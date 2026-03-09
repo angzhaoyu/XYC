@@ -4,12 +4,12 @@
     python -m parallel.multi_transport
 """
 import sys
-import threading
+import threadin
 import time
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent
 sys.path.append(str(PROJECT_ROOT))
 
 from tools.window_manager import WindowGroupManager

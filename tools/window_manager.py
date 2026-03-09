@@ -531,12 +531,11 @@ if __name__ == "__main__":
     gm.arrange(columns=6)
     # ---- 功能2：按图片调整 ----
     #gm.resize_to_image("./window/001.png")
-    #gm.save_layout("6窗标准")
-    # 💾 布局已保存: window/6窗标准.json
+    ######gm.save_layout("6窗标准")
     # ---- 功能4：还原 ----
     #gm.restore_layout("6窗标准")
     gm.activate_all()
 """
 
-
+#确认停用本服角色
 
