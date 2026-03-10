@@ -523,7 +523,7 @@ class WindowGroupManager:
     def __getitem__(self, index):
         return self.windows[index]
 
-"""
+""""""
 if __name__ == "__main__":
     gm = WindowGroupManager("幸福小渔村")
     # 🔍 找到 6 个 '幸福小渔村' 窗口
@@ -535,6 +535,6 @@ if __name__ == "__main__":
     # ---- 功能4：还原 ----
     #gm.restore_layout("6窗标准")
     gm.activate_all()
-"""
+
 
 

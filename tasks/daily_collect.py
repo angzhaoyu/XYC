@@ -226,8 +226,8 @@ class DailyCollect:
 
         
 
-'''
+'''''' 
 if __name__ == "__main__":
     dc = DailyCollect(app_name="幸福小渔村")
     dc.run()
-'''    
+   

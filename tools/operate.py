@@ -10,13 +10,24 @@ import random
 import time
 import json
 import threading
+import win32gui
+import win32con
+import win32api
 from pathlib import Path
 from contextlib import contextmanager
+
+import sys
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).parent.parent
+sys.path.append(str(PROJECT_ROOT))
 
 from tools.window_manager import WindowManager
 from tools.screen_capture import ScreenCapture
 
-# ==================== 工具函数（不变）====================
+pyautogui.FAILSAFE = False
+
+
+# ==================== 工具函数 ====================
 
 def random_duration(min_time, max_time, use_gauss=True):
     if use_gauss:
@@ -42,8 +53,12 @@ def sample_point_in_box(box, sigma_ratio=0.1):
         gy = np.random.normal(center_y, sigma_y)
         if x_min <= gx <= x_max and y_min <= gy <= y_max:
             return [gx, gy]
-
     return [np.clip(gx, x_min, x_max), np.clip(gy, y_min, y_max)]
+
+
+def _make_lparam(x, y):
+    """坐标打包成 lParam"""
+    return (int(y) << 16) | (int(x) & 0xFFFF)
 
 
 # ==================== 主类 ====================
@@ -52,14 +67,16 @@ class Operator:
     def __init__(self, app_name=None, use_mss=True, scale=1,
                  true_window_json="window/true_window.json",
                  mouse_lock=None,
-                 pause_event=None,      # ★ 暂停事件
-                 stop_event=None):      # ★ 停止事件
+                 pause_event=None,
+                 stop_event=None,
+                 use_sendmsg=True):       # ★ 新增：是否用 SendMessage
         self.app_name = app_name
         self.scale = scale
         self.true_window_json = true_window_json
         self._lock = mouse_lock
-        self._pause_event = pause_event   # threading.Event, set=运行中
-        self._stop_event = stop_event     # threading.Event, set=要停止
+        self._pause_event = pause_event
+        self._stop_event = stop_event
+        self._use_sendmsg = use_sendmsg   # ★
 
         # 加载固定边框
         self.borders = {'left': 0, 'top': 0, 'right': 0, 'bottom': 0}
@@ -75,40 +92,29 @@ class Operator:
 
         self.cap = ScreenCapture(use_mss=use_mss)
 
-    # ==================== 暂停/停止检查 ====================
+    # ==================== 暂停/停止 ====================
 
     def check_state(self):
-        """每次操作前调用，处理暂停和停止"""
-        # 检查停止
         if self._stop_event and self._stop_event.is_set():
             raise InterruptedError("🛑 收到停止信号")
-        # 检查暂停（阻塞等待直到恢复）
         if self._pause_event:
             if not self._pause_event.is_set():
                 print("⏸️  已暂停，等待恢复...")
-            self._pause_event.wait()  # set=通过, clear=阻塞
-            # 恢复后再检查一次是否要停止
+            self._pause_event.wait()
             if self._stop_event and self._stop_event.is_set():
                 raise InterruptedError("🛑 收到停止信号")
 
-    # ==================== 鼠标锁 ====================
-
+    # ==================== 锁（SendMessage 模式下不需要）====================
 
     @contextmanager
     def locked_step(self):
-        """
-        高层锁：整个 capture→分析→click 作为一个原子步骤
-        RLock 可重入，内部的 capture/click 再加锁不会死锁
-        """
-        if self._lock:
+        """高层锁，SendMessage 模式下直接 yield"""
+        if self._use_sendmsg:
+            yield
+        elif self._lock:
             self._lock.acquire()
             try:
                 if self.wm:
-                    rect = self.wm.get_rect()
-                    title_x = (rect[0] + rect[2]) // 2
-                    title_y = rect[1] + 5
-                    pyautogui.moveTo(title_x, title_y, duration=0)
-                    time.sleep(0.02)
                     self.wm.activate()
                     time.sleep(0.05)
                 yield
@@ -119,25 +125,20 @@ class Operator:
 
     @contextmanager
     def _mouse_session(self):
-        if self._lock:
-            # ★ 带超时获取锁，防止永久阻塞
-            acquired = self._lock.acquire(timeout=30)
-            if not acquired:
-                print("⚠️ 获取鼠标锁超时，跳过本次操作")
-                yield
-                return
+        """SendMessage 模式下不需要锁"""
+        if self._use_sendmsg:
+            yield
+        elif self._lock:
+            self._lock.acquire()
             try:
                 if self.wm:
-                    try:
-                        rect = self.wm.get_rect()
-                        title_x = (rect[0] + rect[2]) // 2
-                        title_y = rect[1] + 5
-                        pyautogui.moveTo(title_x, title_y, duration=0)
-                        time.sleep(0.02)
-                        self.wm.activate()
-                        time.sleep(0.05)
-                    except Exception as e:
-                        print(f"⚠️ 激活窗口失败: {e}")
+                    rect = self.wm.get_rect()
+                    title_x = (rect[0] + rect[2]) // 2
+                    title_y = rect[1] + 5
+                    pyautogui.moveTo(title_x, title_y, duration=0)
+                    time.sleep(0.02)
+                    self.wm.activate()
+                    time.sleep(0.05)
                 yield
             finally:
                 self._lock.release()
@@ -165,6 +166,16 @@ class Operator:
         except Exception:
             pass
 
+    # ==================== ★ 系统边框 ====================
+
+    def _get_system_border(self):
+        """窗口框架到客户区的偏移"""
+        if not self.wm:
+            return 0, 0
+        pt = win32gui.ClientToScreen(self.wm.hwnd, (0, 0))
+        rect = win32gui.GetWindowRect(self.wm.hwnd)
+        return pt[0] - rect[0], pt[1] - rect[1]
+
     # ==================== 窗口操作 ====================
 
     def activate(self):
@@ -182,16 +193,47 @@ class Operator:
             return self.wm.info()
         return None
 
-    # ==================== ★ 修复：坐标转换 ====================
+    # ==================== ★ 坐标转换（两套）====================
 
-    def transform_box(self, box):
+    def _to_client_coords(self, box):
         """
-        将坐标转为屏幕绝对坐标
+        百分比/像素坐标 → 客户区坐标（给 SendMessage 用）
+        """
+        if not self.wm:
+            return box
 
-        百分比坐标：相对于内容区域（不含边框）→ 加边框+窗口偏移
-        像素坐标：  相对于截图（含边框）→ 只加窗口偏移
+        def is_percentage(coord_list):
+            flat = [c for point in coord_list for c in point]
+            return all(0 <= v <= 1 for v in flat)
+
+        sys_bx, sys_by = self._get_system_border()
+        b = self.borders
+
+        if is_percentage(box):
+            # 百分比 → 内容区域 → 客户区坐标
+            rect = self.wm.get_rect()
+            win_w = rect[2] - rect[0]
+            win_h = rect[3] - rect[1]
+            cw = win_w - b['left'] - b['right']
+            ch = win_h - b['top'] - b['bottom']
+            return [
+                [box[0][0] * cw + b['left'] - sys_bx,
+                 box[0][1] * ch + b['top']  - sys_by],
+                [box[1][0] * cw + b['left'] - sys_bx,
+                 box[1][1] * ch + b['top']  - sys_by],
+            ]
+        else:
+            # 截图像素 → 客户区（减去系统边框）
+            return [
+                [box[0][0] - sys_bx, box[0][1] - sys_by],
+                [box[1][0] - sys_bx, box[1][1] - sys_by],
+            ]
+
+    def _to_screen_coords(self, box):
         """
-        if self.wm is None:
+        百分比/像素坐标 → 屏幕坐标（给 pyautogui 用）
+        """
+        if not self.wm:
             return box
 
         def is_percentage(coord_list):
@@ -202,7 +244,6 @@ class Operator:
         win_left, win_top = rect[0], rect[1]
 
         if is_percentage(box):
-            # ★ 百分比 → 内容区域映射 → 屏幕
             b = self.borders
             win_w = rect[2] - rect[0]
             win_h = rect[3] - rect[1]
@@ -215,41 +256,94 @@ class Operator:
                  box[1][1] * ch + b['top']  + win_top],
             ]
         else:
-            # ★ 像素坐标（YOLO/find_image 返回的，相对于整个截图）
-            #   截图 = 整个窗口（含边框），所以只加窗口左上角偏移
             return [
-                [box[0][0] + win_left,
-                 box[0][1] + win_top],
-                [box[1][0] + win_left,
-                 box[1][1] + win_top],
+                [box[0][0] + win_left, box[0][1] + win_top],
+                [box[1][0] + win_left, box[1][1] + win_top],
             ]
+
+    def transform_box(self, box):
+        """根据模式选择坐标系"""
+        if self._use_sendmsg:
+            return self._to_client_coords(box)
+        else:
+            return self._to_screen_coords(box)
+
+    # ==================== ★ SendMessage 底层方法 ====================
+
+    def _send_click_at(self, x, y):
+        """向窗口发送点击消息（客户区坐标）"""
+        hwnd = self.wm.hwnd
+        lparam = _make_lparam(x, y)
+        win32api.PostMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lparam)
+        time.sleep(random.uniform(0.03, 0.08))
+        win32api.PostMessage(hwnd, win32con.WM_LBUTTONUP, 0, lparam)
+
+    def _send_move_to(self, x, y):
+        """向窗口发送鼠标移动消息"""
+        hwnd = self.wm.hwnd
+        lparam = _make_lparam(x, y)
+        win32api.PostMessage(hwnd, win32con.WM_MOUSEMOVE, 0, lparam)
+
+    def _send_drag(self, sx, sy, ex, ey, duration=0.5, steps=20):
+        """向窗口发送拖拽消息"""
+        hwnd = self.wm.hwnd
+
+        # 按下
+        lparam = _make_lparam(sx, sy)
+        win32api.PostMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lparam)
+        time.sleep(0.05)
+
+        # 移动
+        for i in range(1, steps + 1):
+            t = i / steps
+            cx = sx + (ex - sx) * t
+            cy = sy + (ey - sy) * t
+            lp = _make_lparam(cx, cy)
+            win32api.PostMessage(hwnd, win32con.WM_MOUSEMOVE, win32con.MK_LBUTTON, lp)
+            time.sleep(duration / steps)
+
+        # 松开
+        lparam = _make_lparam(ex, ey)
+        win32api.PostMessage(hwnd, win32con.WM_LBUTTONUP, 0, lparam)
 
     # ==================== 截图 ====================
 
-    def capture(self, save_path=None, activate_first=True):
+    def capture(self, save_path=None, activate_first=False):
         self.check_state()
-        with self._mouse_session():
-            if activate_first and self.wm and not self._lock:
-                self.wm.activate()           # 单线程才在这里激活（多线程已在 _mouse_session 激活过了）
-            region = self.wm.get_region() if self.wm else None
-            img = self.cap.grab(region=region, scale=self.scale)
+        if self._use_sendmsg:
+            # ★ 后台截图，不需要激活
+            img = self.cap.grab_background(self.wm.hwnd) if self.wm else self.cap.grab()
             if img is not None and save_path:
                 self.cap.save(img, save_path)
             return img
+        else:
+            with self._mouse_session():
+                if activate_first and self.wm:
+                    self.wm.activate()
+                region = self.wm.get_region() if self.wm else None
+                img = self.cap.grab(region=region, scale=self.scale)
+                if img is not None and save_path:
+                    self.cap.save(img, save_path)
+                return img
 
     # ==================== 点击 ====================
 
     def click(self, box):
-        with self._mouse_session():
-            abs_box = self.transform_box(box)
-            gx, gy = sample_point_in_box(abs_box)
-            duration = random_duration(0.1, 0.2)
-            pyautogui.moveTo(gx, gy, duration=duration)
-            pyautogui.click()
-            print(f"🖱️ 点击: ({gx:.0f}, {gy:.0f})")
+        self.check_state()
+        abs_box = self.transform_box(box)
+        gx, gy = sample_point_in_box(abs_box)
+        gx, gy = int(gx), int(gy)
+
+        if self._use_sendmsg and self.wm:
+            self._send_click_at(gx, gy)
+            print(f"🖱️ 点击(msg): ({gx}, {gy}) → 句柄{self.wm.hwnd}")
+        else:
+            with self._mouse_session():
+                pyautogui.moveTo(gx, gy, duration=random_duration(0.1, 0.2))
+                pyautogui.click()
+                print(f"🖱️ 点击: ({gx}, {gy})")
 
     def click_json(self, path):
-        """读取 labelme JSON，模板像素 → 内容区域百分比 → 点击"""
         p = Path(path)
         if p.suffix.lower() in {".png", ".jpg", ".jpeg", ""}:
             p = p.with_suffix(".json")
@@ -257,7 +351,6 @@ class Operator:
         data = json.load(open(p, encoding='utf-8'))
         box = data["shapes"][0]["points"]
 
-        # 模板像素 → 内容区域百分比（不受窗口大小影响）
         if self.wm and any(self.borders.values()):
             iw = data.get('imageWidth', 0)
             ih = data.get('imageHeight', 0)
@@ -273,97 +366,100 @@ class Operator:
                          min(1, (box[1][1] - b['top'])  / ch)],
                     ]
 
-        print(f"   🖱️ 点击: {Path(path).stem} | box: {box}")
+        print(f"   🖱️ 点击: {Path(path).stem}")
         self.click(box)
         return True
 
     def double_click(self, box):
-        with self._mouse_session():
-            abs_box = self.transform_box(box)
-            gx, gy = sample_point_in_box(abs_box)
-            duration = random_duration(0.1, 0.2)
-            pyautogui.moveTo(gx, gy, duration=duration)
-            pyautogui.click()
-            time.sleep(random_duration(0.05, 0.1, False))
-            pyautogui.click()
-            print(f"🖱️ 双击: ({gx:.0f}, {gy:.0f})")
+        self.check_state()
+        abs_box = self.transform_box(box)
+        gx, gy = sample_point_in_box(abs_box)
+        gx, gy = int(gx), int(gy)
+
+        if self._use_sendmsg and self.wm:
+            self._send_click_at(gx, gy)
+            time.sleep(random.uniform(0.05, 0.1))
+            self._send_click_at(gx, gy)
+            print(f"🖱️ 双击(msg): ({gx}, {gy})")
+        else:
+            with self._mouse_session():
+                pyautogui.moveTo(gx, gy, duration=random_duration(0.1, 0.2))
+                pyautogui.click()
+                time.sleep(random_duration(0.05, 0.1, False))
+                pyautogui.click()
+                print(f"🖱️ 双击: ({gx}, {gy})")
+
+    # ==================== 拖拽 ====================
 
     def drag(self, box, direction, duration=0.5, reback=False):
-        with self._mouse_session():
-            abs_box = self.transform_box(box)
-            x1, y1 = abs_box[0]
-            x2, y2 = abs_box[1]
+        self.check_state()
+        abs_box = self.transform_box(box)
+        x1, y1 = abs_box[0]
+        x2, y2 = abs_box[1]
 
-            # ★ 打印出来看看
-            screen_w, screen_h = pyautogui.size()
-            print(f"🔍 drag 输入 box={box}")
-            print(f"🔍 转换后 abs_box=({x1:.0f},{y1:.0f})-({x2:.0f},{y2:.0f})")
-            print(f"🔍 屏幕={screen_w}x{screen_h}")
+        # 限制范围
+        if self._use_sendmsg:
+            cw, ch = win32gui.GetClientRect(self.wm.hwnd)[2:4]
+            x1 = max(0, min(cw, x1))
+            y1 = max(0, min(ch, y1))
+            x2 = max(0, min(cw, x2))
+            y2 = max(0, min(ch, y2))
+        else:
+            sw, sh = pyautogui.size()
+            x1 = max(0, min(sw, x1))
+            y1 = max(0, min(sh, y1))
+            x2 = max(0, min(sw, x2))
+            y2 = max(0, min(sh, y2))
 
-            # ★ 先把 box 本身限制在屏幕内
-            x1 = max(0, min(screen_w, x1))
-            y1 = max(0, min(screen_h, y1))
-            x2 = max(0, min(screen_w, x2))
-            y2 = max(0, min(screen_h, y2))
+        width, height = x2 - x1, y2 - y1
+        if width < 10 or height < 10:
+            print("⚠️ box 太小，跳过拖动")
+            return
 
-            width, height = x2 - x1, y2 - y1
-            if width < 10 or height < 10:
-                print(f"⚠️ box 太小或无效，跳过拖动")
-                return
+        margin = 0.15
+        directions = {
+            'up':    lambda: (x1 + width * (0.3 + random.uniform(0, 0.4)),
+                              y1 + height * (0.8 - margin),
+                              None, y1 + height * (0.2 + margin)),
+            'down':  lambda: (x1 + width * (0.3 + random.uniform(0, 0.4)),
+                              y1 + height * (0.2 + margin),
+                              None, y1 + height * (0.8 - margin)),
+            'left':  lambda: (x1 + width * (0.8 - margin),
+                              y1 + height * (0.3 + random.uniform(0, 0.4)),
+                              x1 + width * (0.2 + margin), None),
+            'right': lambda: (x1 + width * (0.2 + margin),
+                              y1 + height * (0.3 + random.uniform(0, 0.4)),
+                              x1 + width * (0.8 - margin), None),
+        }
 
-            margin = 0.15
+        if direction not in directions:
+            raise ValueError(f"direction 必须是 {list(directions.keys())}")
 
-            directions = {
-                'up':    lambda: (x1 + width * (0.3 + random.uniform(0, 0.4)),
-                                y1 + height * (0.8 - margin),
-                                None, y1 + height * (0.2 + margin)),
-                'down':  lambda: (x1 + width * (0.3 + random.uniform(0, 0.4)),
-                                y1 + height * (0.2 + margin),
-                                None, y1 + height * (0.8 - margin)),
-                'left':  lambda: (x1 + width * (0.8 - margin),
-                                y1 + height * (0.3 + random.uniform(0, 0.4)),
-                                x1 + width * (0.2 + margin), None),
-                'right': lambda: (x1 + width * (0.2 + margin),
-                                y1 + height * (0.3 + random.uniform(0, 0.4)),
-                                x1 + width * (0.8 - margin), None),
-            }
+        sx, sy, ex, ey = directions[direction]()
+        if ex is None: ex = sx + random.uniform(-5, 5)
+        if ey is None: ey = sy + random.uniform(-5, 5)
 
-            if direction not in directions:
-                raise ValueError(f"direction 必须是 {list(directions.keys())}")
+        sx = max(x1, min(x2, sx))
+        sy = max(y1, min(y2, sy))
+        ex = max(x1, min(x2, ex))
+        ey = max(y1, min(y2, ey))
 
-            sx, sy, ex, ey = directions[direction]()
-            if ex is None: ex = sx + random.uniform(-5, 5)   # ★ 减小随机量
-            if ey is None: ey = sy + random.uniform(-5, 5)
-
-            # ★ 限制在 box 范围内
-            sx = max(x1, min(x2, sx))
-            sy = max(y1, min(y2, sy))
-            ex = max(x1, min(x2, ex))
-            ey = max(y1, min(y2, ey))
-
-            # ★ 再限制在屏幕范围内
-            sx = max(5, min(screen_w - 5, sx))
-            sy = max(5, min(screen_h - 5, sy))
-            ex = max(5, min(screen_w - 5, ex))
-            ey = max(5, min(screen_h - 5, ey))
-
-            print(f"🔍 最终拖动: ({sx:.0f},{sy:.0f}) -> ({ex:.0f},{ey:.0f})")
-
-            if reback:
-                rb_x = max(x1, min(x2, x1 + 5))
-                rb_x = max(5, min(screen_w - 5, rb_x))
-                pyautogui.moveTo(rb_x, sy, duration=0.2)
-                pyautogui.dragTo(ex, sy, duration=duration, button='left')
-                return
-
-            pyautogui.moveTo(sx, sy, duration=0.2)
-            pyautogui.dragTo(ex, ey, duration=duration, button='left',
-                            tween=pyautogui.easeInOutQuad)
-            print(f"↔️ 拖动 {direction}: ({sx:.0f},{sy:.0f}) -> ({ex:.0f},{ey:.0f})")
-
+        if self._use_sendmsg and self.wm:
+            self._send_drag(int(sx), int(sy), int(ex), int(ey), duration)
+            print(f"↔️ 拖动(msg) {direction}: ({sx:.0f},{sy:.0f})->({ex:.0f},{ey:.0f})")
+        else:
+            with self._mouse_session():
+                if reback:
+                    rb_x = max(x1, min(x2, x1 + 5))
+                    pyautogui.moveTo(rb_x, sy, duration=0.2)
+                    pyautogui.dragTo(ex, sy, duration=duration, button='left')
+                    return
+                pyautogui.moveTo(sx, sy, duration=0.2)
+                pyautogui.dragTo(ex, ey, duration=duration, button='left',
+                                 tween=pyautogui.easeInOutQuad)
+                print(f"↔️ 拖动 {direction}: ({sx:.0f},{sy:.0f})->({ex:.0f},{ey:.0f})")
 
     def drag_json(self, path, direction, duration=0.5, reback=False):
-        """读取 labelme JSON 的 box，转百分比后拖动"""
         p = Path(path)
         if p.suffix.lower() in {".png", ".jpg", ".jpeg", ""}:
             p = p.with_suffix(".json")
@@ -371,7 +467,6 @@ class Operator:
         data = json.load(open(p, encoding='utf-8'))
         box = data["shapes"][0]["points"]
 
-        # ★ 模板像素 → 内容区域百分比（和 click_json 一样）
         if self.wm and any(self.borders.values()):
             iw = data.get('imageWidth', 0)
             ih = data.get('imageHeight', 0)
@@ -382,13 +477,15 @@ class Operator:
                 if cw > 0 and ch > 0:
                     box = [
                         [max(0, (box[0][0] - b['left']) / cw),
-                        max(0, (box[0][1] - b['top'])  / ch)],
+                         max(0, (box[0][1] - b['top'])  / ch)],
                         [min(1, (box[1][0] - b['left']) / cw),
-                        min(1, (box[1][1] - b['top'])  / ch)],
+                         min(1, (box[1][1] - b['top'])  / ch)],
                     ]
 
-        print(f"   ↔️ 拖动: {Path(path).stem} | box: {box} | {direction}")
+        print(f"   ↔️ 拖动: {Path(path).stem} | {direction}")
         self.drag(box, direction, duration, reback)
 
-
-
+"""
+if __name__ == "__main__":
+    operate = Operator("幸福小渔村")
+    operate.capture(save_path= "001.png")"""
