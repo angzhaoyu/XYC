@@ -505,3 +505,15 @@
 06:15:35 [Thread-9] INFO 🏁 全部结束
 06:15:49 [MainThread] INFO 扫描到 1 个 '幸福小渔村' 窗口
 06:15:51 [MainThread] INFO 扫描到 1 个 '幸福小渔村' 窗口
+06:18:07 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:18:07 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:18:07 [win_0] INFO 🌍 大区: default
+06:18:07 [win_0] INFO ▶️ shop
+06:19:03 [win_0] INFO ✅ 商店领取完成
+06:19:03 [win_0] INFO ▶️ transport
+06:19:03 [win_0] INFO 🚀 开始运输
+06:19:30 [win_0] INFO 资源: 0
+06:19:30 [win_0] INFO ✅ 运输完成
+06:19:30 [win_0] INFO 🏁 调度完成
+06:19:30 [Thread-12] INFO ✅ 14290142 完成
+06:19:30 [Thread-12] INFO 🏁 全部结束
