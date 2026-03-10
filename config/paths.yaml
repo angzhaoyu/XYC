@@ -1,0 +1,50 @@
+# 所有模板路径注册（任务代码中不写死路径）
+transport:
+  birds:
+    bird_451: "templates/transport/birds/451.png" 
+  caini:
+    check: "templates/transport/caini/00.png"
+    click: "templates/transport/caini/1.png"
+  mouse_combo:
+    guankan: "templates/transport/mouse_combo/guankan.png"
+    guanbi: "templates/transport/mouse_combo/guanbi.png"
+    jixukan: "templates/transport/mouse_combo/jixukan.png"
+    yjsz: "templates/transport/mouse_combo/yjsz.png"
+    slot_prefix: "templates/transport/mouse_combo/00{}.png"
+  rimges_dir: "templates/transport/rimges"
+
+daily:
+  shop:
+    collect: "templates/daily/shop/shangdian.png"
+  checkin:
+    entry: "templates/daily/checkin/qiandao_id.png"
+    days: "templates/daily/checkin/qiandao_{}.png"    # {} = 1~7
+  zhp:
+    check1: "templates/daily/zhp/zhp_1.png"
+    check2: "templates/daily/zhp/zhp_2.png"
+    yuer: "templates/daily/zhp/yuer.png"
+    zhuanshi: "templates/daily/zhp/zhuanshi.png"
+  ranking:
+    enter: "templates/daily/ranking/paihang_00.png"
+    collect: "templates/daily/ranking/paihang_01.png"
+    drag_area: "templates/daily/ranking/paihang_02.png"
+  daoju:
+    buy1: "templates/daily/daoju/buy_01.png"
+    buy2: "templates/daily/daoju/buy_02.png"
+    fhs: "templates/daily/daoju/fhs_id.png"
+    sxk: "templates/daily/daoju/sxk_id.png"
+  richang:
+    sllb: "templates/daily/richang/sllb_id.png"
+    fhlb: "templates/daily/richang/fhlb_id.png"
+    sxlb: "templates/daily/richang/sxlb_id.png"
+  id_checks:
+    ycfrd: "templates/daily/id_checks/ycfrd_id.png"
+    szpfb: "templates/daily/id_checks/szpfb_id.png"
+
+ad:
+  close: "templates/transport/mouse_combo/guanbi.png"
+  continue_watch: "templates/transport/mouse_combo/jixukan.png"
+
+explore:
+  entry: "templates/explore/entry.png"
+  start: "templates/explore/start.png"

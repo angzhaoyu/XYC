@@ -1,0 +1,18 @@
+# 全局设置
+window:
+  title: "幸福小渔村"
+  true_window_json: "window/true_window.json"
+
+capture:
+  use_sendmsg: true        # true=后台操作, false=前台pyautogui
+  use_mss: true
+
+yolo:
+  model_path: "models/best.pt"
+
+states:
+  file: "templates/states/states.txt"
+
+log:
+  level: "INFO"
+  dir: "logs/"

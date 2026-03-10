@@ -1,0 +1,16 @@
+# 账号-大区映射
+# 窗口按标题自动匹配，region_order 定义换区顺序
+accounts:
+  - name: "账号1"
+    regions: ["大区A", "大区B", "大区C"]
+  - name: "账号2"
+    regions: ["大区A", "大区B"]
+
+# 换区相关模板
+region_switch:
+  entry: "templates/region/entry.png"
+  confirm: "templates/region/confirm.png"
+  region_list:
+    "大区A": "templates/region/region_a.png"
+    "大区B": "templates/region/region_b.png"
+    "大区C": "templates/region/region_c.png"

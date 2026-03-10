@@ -1,0 +1,507 @@
+05:52:31 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+05:52:31 [Thread-3] ERROR ❌ 14290142: __init__() got an unexpected keyword argument 'operator'
+05:52:31 [Thread-3] ERROR 运行异常: shutdown() got an unexpected keyword argument 'cancel_futures'
+05:52:45 [MainThread] INFO 扫描到 1 个 '幸福小渔村' 窗口
+05:52:54 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+05:52:54 [Thread-4] ERROR ❌ 14290142: __init__() got an unexpected keyword argument 'operator'
+05:52:54 [Thread-4] ERROR 运行异常: shutdown() got an unexpected keyword argument 'cancel_futures'
+05:56:06 [MainThread] INFO 扫描到 1 个 '幸福小渔村' 窗口
+05:56:15 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+05:56:15 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+05:56:15 [win_0] INFO 🌍 大区: default
+05:56:15 [win_0] INFO ▶️ transport
+05:56:15 [win_0] INFO 🚀 开始运输
+05:56:24 [win_0] INFO 资源: 7
+05:56:24 [win_0] INFO 选择海兽
+05:56:34 [win_0] ERROR ❌ transport: No module named 'coordinate_utils'
+05:56:34 [win_0] INFO 🏁 调度完成
+05:56:34 [Thread-3] INFO ✅ 14290142 完成
+05:56:34 [Thread-3] ERROR 运行异常: shutdown() got an unexpected keyword argument 'cancel_futures'
+06:00:33 [MainThread] INFO 扫描到 1 个 '幸福小渔村' 窗口
+06:00:38 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:00:38 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 2 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 3 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 4 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 5 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 6 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 7 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 8 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 9 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 10 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 11 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 12 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 13 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 14 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 15 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 16 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 17 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 18 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 19 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 20 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 21 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 22 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 23 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 24 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 25 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 26 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 27 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 28 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 29 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 30 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 31 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 32 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 33 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 34 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 35 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 36 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 37 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 38 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 39 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 40 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 41 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 42 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 43 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 44 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:38 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:38 [win_0] INFO 📍 第 45 轮 (hwnd=14290142)
+06:00:38 [win_0] INFO 🌍 大区: default
+06:00:38 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 46 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 47 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 48 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 49 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 50 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 51 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 52 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 53 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 54 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 55 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 56 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 57 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 58 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 59 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 60 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 61 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 62 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 63 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 64 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 65 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 66 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 67 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 68 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 69 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 70 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 71 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 72 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 73 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 74 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 75 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 76 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 77 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 78 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 79 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 80 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 81 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 82 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 83 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 84 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 85 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 86 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 87 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 88 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 89 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 90 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 91 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 92 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 93 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 94 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 95 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 96 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 97 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 98 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 99 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 📍 第 100 轮 (hwnd=14290142)
+06:00:39 [win_0] INFO 🌍 大区: default
+06:00:39 [win_0] INFO ▶️ checkin
+06:00:39 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:39 [win_0] INFO 🏁 调度完成
+06:00:39 [Thread-3] INFO ✅ 14290142 完成
+06:00:39 [Thread-3] ERROR 运行异常: shutdown() got an unexpected keyword argument 'cancel_futures'
+06:00:50 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:00:50 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:00:50 [win_0] INFO 🌍 大区: default
+06:00:50 [win_0] INFO ▶️ checkin
+06:00:50 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:00:50 [win_0] INFO 🏁 调度完成
+06:00:50 [Thread-4] INFO ✅ 14290142 完成
+06:00:50 [Thread-4] ERROR 运行异常: shutdown() got an unexpected keyword argument 'cancel_futures'
+06:01:56 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:01:56 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:01:56 [win_0] INFO 🌍 大区: default
+06:01:56 [win_0] INFO ▶️ checkin
+06:01:56 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:01:56 [win_0] INFO 🏁 调度完成
+06:01:56 [Thread-3] INFO ✅ 14290142 完成
+06:01:56 [Thread-3] INFO 🏁 全部结束
+06:03:47 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:03:47 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:03:47 [win_0] INFO 🌍 大区: default
+06:03:47 [win_0] INFO ▶️ checkin
+06:03:47 [win_0] ERROR ❌ checkin: 'MyVision' object has no attribute 'find_image'
+06:03:47 [win_0] INFO 🏁 调度完成
+06:03:47 [Thread-4] INFO ✅ 14290142 完成
+06:03:47 [Thread-4] INFO 🏁 全部结束
+06:03:59 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:03:59 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:03:59 [win_0] INFO 🌍 大区: default
+06:03:59 [win_0] INFO ▶️ checkin
+06:04:40 [win_0] ERROR ❌ checkin: [Errno 2] No such file or directory: 'f:\\XYC\\templates\\daily\\qiandao_id.png'
+06:04:40 [win_0] INFO 🏁 调度完成
+06:04:40 [Thread-3] INFO ✅ 14290142 完成
+06:04:40 [Thread-3] INFO 🏁 全部结束
+06:07:25 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:07:25 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:07:25 [win_0] INFO 🌍 大区: default
+06:07:25 [win_0] INFO ▶️ checkin
+06:07:46 [win_0] INFO ✅ 签到完成
+06:07:46 [win_0] INFO 🏁 调度完成
+06:07:46 [Thread-3] INFO ✅ 14290142 完成
+06:07:46 [Thread-3] INFO 🏁 全部结束
+06:08:03 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:08:03 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:08:03 [win_0] INFO 🌍 大区: default
+06:08:03 [win_0] INFO ▶️ transport
+06:08:03 [win_0] INFO 🚀 开始运输
+06:08:33 [win_0] INFO 资源: 8
+06:08:33 [win_0] INFO 选择海兽
+06:08:46 [win_0] WARNING 第1次未进入上阵
+06:09:08 [win_0] INFO 完成选择, 闲=5
+06:09:08 [win_0] INFO 选择海兽
+06:09:21 [win_0] WARNING 第1次未进入上阵
+06:09:43 [win_0] INFO 完成选择, 闲=4
+06:09:43 [win_0] INFO 选择海兽
+06:09:56 [win_0] WARNING 第1次未进入上阵
+06:10:18 [win_0] INFO 完成选择, 闲=3
+06:10:18 [win_0] INFO 选择海兽
+06:10:33 [win_0] INFO 完成选择, 闲=2
+06:10:33 [win_0] INFO 选择海兽
+06:10:48 [win_0] INFO 完成选择, 闲=1
+06:10:49 [win_0] INFO 选择海兽
+06:11:03 [win_0] WARNING 第1次未进入上阵
+06:11:25 [win_0] INFO 完成选择, 闲=0
+06:11:26 [win_0] INFO ✅ 运输完成
+06:11:26 [win_0] INFO 🏁 调度完成
+06:11:26 [Thread-4] INFO ✅ 14290142 完成
+06:11:26 [Thread-4] INFO 🏁 全部结束
+06:13:36 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+06:13:36 [win_0] INFO 📍 第 1 轮 (hwnd=14290142)
+06:13:36 [win_0] INFO 🌍 大区: default
+06:13:36 [win_0] INFO ▶️ transport
+06:13:36 [win_0] INFO 🚀 开始运输
+06:13:44 [win_0] INFO 资源: 0
+06:14:36 [win_0] INFO 选择海兽
+06:14:49 [win_0] WARNING 第1次未进入上阵
+06:15:09 [win_0] WARNING 第2次未进入上阵
+06:15:33 [win_0] INFO 完成选择, 闲=0
+06:15:33 [win_0] INFO 选择海兽
+06:15:35 [win_0] INFO ✅ 运输完成
+06:15:35 [win_0] INFO 🏁 调度完成
+06:15:35 [Thread-9] INFO ✅ 14290142 完成
+06:15:35 [Thread-9] INFO 🏁 全部结束
+06:15:49 [MainThread] INFO 扫描到 1 个 '幸福小渔村' 窗口
+06:15:51 [MainThread] INFO 扫描到 1 个 '幸福小渔村' 窗口

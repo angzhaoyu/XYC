@@ -1,7 +1,7 @@
-tasks/states/*
+test/*
+templates/*
 screenshots/*
 tasks/daily-collect/*
-window/*
 python学习.ipynb
 test.ipynb
 main_run.py

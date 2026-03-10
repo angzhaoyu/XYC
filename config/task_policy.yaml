@@ -1,0 +1,13 @@
+# 任务策略
+transport:
+  refresh:
+    ad_limit_per_day: 2            # 广告刷新每日上限
+    card_cost_threshold: 3         # 卡消耗超过此值停止
+    card_min_reserve: 5            # 卡数量低于此值停止
+    only_when_empty: true          # 仅领地空闲时刷新
+
+explore:
+  ad_per_run: 1                    # 每次探秘看几个广告
+
+daily:
+  skip_if_done: true               # 已完成的不重复
