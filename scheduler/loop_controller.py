@@ -1,9 +1,11 @@
 class LoopController:
     def __init__(self, enable_loop=False, max_rounds=1,
-                 enable_region_switch=False):
+                 enable_region_switch=False,
+                 wait_minutes=3):                # ★ 新增
         self.enable_loop = enable_loop
         self.max_rounds = max_rounds
         self.enable_region_switch = enable_region_switch
+        self.wait_minutes = wait_minutes         # ★
         self.current_round = 0
 
     @property

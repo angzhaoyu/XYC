@@ -1,0 +1,72 @@
+{
+  "title": "微信",
+  "timestamp": "2026-03-12 17:07:15",
+  "screen": {
+    "width": 1920,
+    "height": 1080
+  },
+  "count": 6,
+  "uniformity": "different",
+  "windows": [
+    {
+      "index": 0,
+      "hwnd": 199666,
+      "left": 1247,
+      "top": 190,
+      "width": 680,
+      "height": 412,
+      "client_width": 664,
+      "client_height": 404
+    },
+    {
+      "index": 1,
+      "hwnd": 918222,
+      "left": 1245,
+      "top": 595,
+      "width": 680,
+      "height": 412,
+      "client_width": 664,
+      "client_height": 404
+    },
+    {
+      "index": 2,
+      "hwnd": 6687880,
+      "left": 605,
+      "top": 590,
+      "width": 680,
+      "height": 412,
+      "client_width": 664,
+      "client_height": 404
+    },
+    {
+      "index": 3,
+      "hwnd": 198646,
+      "left": 6,
+      "top": 590,
+      "width": 640,
+      "height": 412,
+      "client_width": 624,
+      "client_height": 404
+    },
+    {
+      "index": 4,
+      "hwnd": 197954,
+      "left": 6,
+      "top": 184,
+      "width": 640,
+      "height": 412,
+      "client_width": 624,
+      "client_height": 404
+    },
+    {
+      "index": 5,
+      "hwnd": 656412,
+      "left": 616,
+      "top": 178,
+      "width": 640,
+      "height": 412,
+      "client_width": 624,
+      "client_height": 404
+    }
+  ]
+}

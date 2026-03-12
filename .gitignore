@@ -1,8 +1,3 @@
 test/*
 templates/*
-screenshots/*
-tasks/daily-collect/*
-python学习.ipynb
-test.ipynb
-main_run.py
-main.py
+data/*

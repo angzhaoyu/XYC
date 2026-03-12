@@ -222,3 +222,125 @@ class MyVision:
         x1, y1 = int(a_perc[0][0]*w), int(a_perc[0][1]*h)
         x2, y2 = int(a_perc[1][0]*w), int(a_perc[1][1]*h)
         return img[y1:y2, x1:x2], (x1, y1)
+    
+
+    def _find_best_size_template(self, template_path, current_img):
+        """
+        检查模板路径所在目录是否有 size1/ size2/ 等兄弟目录
+        如果有，根据当前截图尺寸选择最匹配的模板
+        
+        返回: 最佳模板路径列表（可能1个或2个）
+        """
+        p = Path(template_path)
+        parent = p.parent
+        filename = p.name
+
+        # 检查是否在 sizeN 目录下
+        if not parent.name.startswith("size"):
+            # 不在 size 目录，检查同级是否有 size 子目录
+            size_dirs = sorted([
+                d for d in parent.iterdir()
+                if d.is_dir() and d.name.startswith("size") and (d / filename).exists()
+            ])
+            if not size_dirs:
+                return [template_path]  # 无多尺寸，用原始
+        else:
+            # 已在 sizeN 目录，查找兄弟 size 目录
+            grandparent = parent.parent
+            size_dirs = sorted([
+                d for d in grandparent.iterdir()
+                if d.is_dir() and d.name.startswith("size") and (d / filename).exists()
+            ])
+            if not size_dirs:
+                return [template_path]
+
+        # 计算每个 size 模板的内容区域宽度
+        h_cur, w_cur = current_img.shape[:2]
+        b = self.borders
+        cur_cw = w_cur - b['left'] - b['right']
+
+        candidates = []
+        for d in size_dirs:
+            tpl_path = str(d / filename)
+            tpl_img = self._load(tpl_path)
+            if tpl_img is None:
+                continue
+            tpl_cw = tpl_img.shape[1] - b['left'] - b['right']
+            ratio = cur_cw / tpl_cw if tpl_cw > 0 else 999
+            diff = abs(ratio - 1.0)  # 越接近1.0越好
+            candidates.append((tpl_path, diff, ratio))
+
+        if not candidates:
+            return [template_path]
+
+        candidates.sort(key=lambda x: x[1])
+
+        # 最佳匹配
+        best = candidates[0]
+
+        # 如果最佳很接近（<5%差异），只用最佳
+        if best[1] < 0.05:
+            return [best[0]]
+
+        # 如果有第二候选且差距不大（都在20%以内），两个都试
+        if len(candidates) >= 2:
+            second = candidates[1]
+            if best[1] < 0.2 and second[1] < 0.2:
+                return [best[0], second[0]]
+
+        return [best[0]]
+
+
+    def find_image_multi(self, img1_input, img2_input, a_percentage=None, threshold=0.8):
+        """
+        ★ 多尺寸 find_image：自动选择最匹配的模板尺寸
+        """
+        img1 = self._load(img1_input) if not isinstance(img1_input, np.ndarray) else img1_input
+        if img1 is None:
+            return None
+
+        img2_path = str(img2_input) if isinstance(img2_input, (str, Path)) else img2_input
+
+        # 获取最佳模板路径（可能多个）
+        if isinstance(img2_path, str):
+            best_paths = self._find_best_size_template(img2_path, img1)
+        else:
+            best_paths = [img2_path]
+
+        best_result = None
+        best_score = -1
+
+        for tpl_path in best_paths:
+            result = self.find_image(img1, tpl_path, a_percentage=a_percentage, threshold=threshold)
+            if result:
+                # 获取该匹配的分数
+                score = self.match_score(img1, tpl_path, a_percentage=a_percentage)
+                if score > best_score:
+                    best_score = score
+                    best_result = result
+
+        return best_result
+
+
+    def match_score_multi(self, img1_input, img2_input, a_percentage=None):
+        """
+        ★ 多尺寸 match_score
+        """
+        img1 = self._load(img1_input) if not isinstance(img1_input, np.ndarray) else img1_input
+        if img1 is None:
+            return -1
+
+        img2_path = str(img2_input) if isinstance(img2_input, (str, Path)) else img2_input
+
+        if isinstance(img2_path, str):
+            best_paths = self._find_best_size_template(img2_path, img1)
+        else:
+            best_paths = [img2_path]
+
+        best_score = -1
+        for tpl_path in best_paths:
+            score = self.match_score(img1, tpl_path, a_percentage=a_percentage)
+            if score > best_score:
+                best_score = score
+
+        return best_score

@@ -1,0 +1,45 @@
+17:05:19 [MainThread] INFO 扫描到 6 个 '幸福小渔村' 窗口
+17:43:37 [MainThread] INFO 扫描到 0 个 '幸福小渔村' 窗口
+18:05:51 [MainThread] INFO 扫描到 0 个 '幸福小渔村' 窗口
+18:37:15 [MainThread] INFO ⌨️ F9=暂停/恢复  F10=停止
+18:37:15 [win_1] INFO 📍 第 1 轮 (hwnd=657910)
+18:37:15 [win_0] INFO 📍 第 1 轮 (hwnd=1246358)
+18:37:15 [win_2] INFO 📍 第 1 轮 (hwnd=658012)
+18:37:15 [win_0] INFO 🌍 大区: default
+18:37:15 [win_1] INFO 🌍 大区: default
+18:37:15 [win_2] INFO 🌍 大区: default
+18:37:15 [win_0] INFO ▶️ shop
+18:37:15 [win_1] INFO ▶️ shop
+18:37:15 [win_2] INFO ▶️ shop
+18:37:21 [win_0] INFO ✅ 商店领取完成
+18:37:21 [win_0] INFO ▶️ checkin
+18:37:21 [win_1] INFO ✅ 商店领取完成
+18:37:21 [win_1] INFO ▶️ checkin
+18:37:21 [win_2] INFO ✅ 商店领取完成
+18:37:21 [win_2] INFO ▶️ checkin
+18:37:26 [win_0] INFO ✅ 签到完成
+18:37:26 [win_0] INFO ▶️ zhp
+18:37:26 [win_2] INFO ✅ 签到完成
+18:37:26 [win_1] INFO ✅ 签到完成
+18:37:26 [win_2] INFO ▶️ zhp
+18:37:26 [win_1] INFO ▶️ zhp
+18:37:37 [win_0] INFO ✅ 杂货铺完成
+18:37:37 [win_0] INFO ▶️ ranking
+18:37:37 [win_1] INFO ✅ 杂货铺完成
+18:37:37 [win_1] INFO ▶️ ranking
+18:37:37 [win_2] INFO ✅ 杂货铺完成
+18:37:37 [win_2] INFO ▶️ ranking
+18:37:46 [win_0] ERROR ❌ ranking: [Errno 2] No such file or directory: 'tasks\\states\\page-change\\ycfrd_szpfb_01.json'
+18:37:46 [win_0] INFO ▶️ daoju
+18:37:46 [win_1] ERROR ❌ ranking: [Errno 2] No such file or directory: 'tasks\\states\\page-change\\ycfrd_szpfb_01.json'
+18:37:46 [win_1] INFO ▶️ daoju
+18:37:46 [win_2] ERROR ❌ ranking: [Errno 2] No such file or directory: 'tasks\\states\\page-change\\ycfrd_szpfb_01.json'
+18:37:46 [win_2] INFO ▶️ daoju
+18:38:03 [MainThread] INFO 🛑 停止
+18:38:04 [win_0] INFO ✅ 道具商店完成
+18:38:04 [Thread-3] INFO ⏹️ 1246358 已停止
+18:38:04 [win_2] INFO ✅ 道具商店完成
+18:38:04 [Thread-3] INFO ⏹️ 658012 已停止
+18:38:04 [win_1] INFO ✅ 道具商店完成
+18:38:04 [Thread-3] INFO ⏹️ 657910 已停止
+18:38:04 [Thread-3] INFO 🏁 全部结束

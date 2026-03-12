@@ -523,12 +523,13 @@ class WindowGroupManager:
     def __getitem__(self, index):
         return self.windows[index]
 
-
+""""""
 if __name__ == "__main__":
     gm = WindowGroupManager("幸福小渔村")
+    #gm = WindowGroupManager("微信")
     # 🔍 找到 6 个 '幸福小渔村' 窗口
     # ---- 功能1：等比排列 ----
-    gm.arrange(columns=5)
+    gm.arrange(columns=4)
     # ---- 功能2：按图片调整 ----
     #gm.resize_to_image("./window/001.png")
     #gm.save_layout("6窗标准")
@@ -536,7 +537,7 @@ if __name__ == "__main__":
     # ---- 功能4：还原 ----
     #gm.restore_layout("6窗标准")
     gm.activate_all()
-"""
-"""
+
+
 
 

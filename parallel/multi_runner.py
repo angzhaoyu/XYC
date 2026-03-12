@@ -32,15 +32,20 @@ class MultiRunner:
 
     def _stop_all(self):
         self._stop_event.set()
-        self._pause_event.set()
+        self._pause_event.set()          # 解除暂停阻塞
         self.log.info("🛑 停止")
 
     def run(self, selected_tasks, enable_loop=False, max_rounds=1,
             enable_region_switch=False, use_sendmsg=True,
+            wait_minutes=3,                                    # ★ 新增
             accounts_map=None):
         if not self.gm.windows:
             self.log.error("❌ 没有窗口")
             return
+
+        # ★ 重置停止信号（允许重新启动）
+        self._stop_event.clear()
+        self._pause_event.set()
 
         accounts_map = accounts_map or {
             wm.hwnd: f"account_{i}" for i, wm in enumerate(self.gm.windows)
@@ -58,6 +63,7 @@ class MultiRunner:
                     enable_loop=enable_loop,
                     max_rounds=max_rounds,
                     enable_region_switch=enable_region_switch,
+                    wait_minutes=wait_minutes,                 # ★ 传入
                 )
 
                 f = pool.submit(
@@ -66,11 +72,13 @@ class MultiRunner:
                 )
                 futures[f] = hwnd
 
-            for f in as_completed(futures, timeout=3600):
+            for f in as_completed(futures, timeout=86400):
                 hwnd = futures[f]
                 try:
                     f.result()
                     self.log.info(f"✅ {hwnd} 完成")
+                except InterruptedError:
+                    self.log.info(f"⏹️ {hwnd} 已停止")
                 except Exception as e:
                     self.log.error(f"❌ {hwnd}: {e}")
 
@@ -88,5 +96,7 @@ class MultiRunner:
             selected_tasks=selected_tasks,
             loop_ctrl=loop_ctrl,
             use_sendmsg=use_sendmsg,
+            pause_event=self._pause_event,       # ★ 传入
+            stop_event=self._stop_event,         # ★ 传入
         )
         scheduler.run()
